@@ -2,19 +2,13 @@ package com.itziar.androiddsa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
-public class MainRegister extends AppCompatActivity {
-
+public class MainObjects extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_main);
-
+        setContentView(R.layout.objects_main);
     }
-
 }

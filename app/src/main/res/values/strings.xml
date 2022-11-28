@@ -14,4 +14,6 @@
     <string name="username_reg">Username</string>
     <string name="ok">ok</string>
     <string name="cancel">Cancel</string>
+    <string name="gmail_log">Gmail</string>
+    <string name="birth_date">Birth date</string>
 </resources>
