@@ -29,7 +29,7 @@ public class MainLogIn extends AppCompatActivity {
     Button btnLogIn, btnRegister;
     EditText mail, password;
 
-    String URL = "https://147.83.7.205:80/dsaApp";
+    String URL = "http://147.83.7.205:80/dsaApp/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

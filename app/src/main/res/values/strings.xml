@@ -16,4 +16,5 @@
     <string name="cancel">Cancel</string>
     <string name="gmail_log">Gmail</string>
     <string name="birth_date">Birth date</string>
+    <string name="list_of_objects">List of objects</string>
 </resources>
