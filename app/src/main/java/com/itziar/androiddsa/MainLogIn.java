@@ -11,9 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.itziar.androiddsa.domain.UserLogIn;
-import com.itziar.androiddsa.domain.exceptions.EmailAddressNotValidException;
 import com.itziar.androiddsa.domain.vo.Credentials;
-import com.itziar.androiddsa.domain.vo.EmailAddress;
 import com.itziar.androiddsa.retrofit.Api;
 
 import okhttp3.OkHttpClient;
@@ -49,13 +47,7 @@ public class MainLogIn extends AppCompatActivity {
     }
 
 
-    public void logIn(View view) throws EmailAddressNotValidException {
-        Credentials credentials = new Credentials(new EmailAddress(mail.toString()),password.toString());
-        logInUser(credentials);
-    }
-
-    private void logInUser(Credentials credentials){
-
+    public void logIn(View view){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
         StrictMode.setThreadPolicy(policy);
@@ -70,13 +62,15 @@ public class MainLogIn extends AppCompatActivity {
                 .build();
 
         Api service = retrofit.create(Api.class);
-        Call<UserLogIn> call = service.logInUser(credentials);
+        Call<UserLogIn> call = service.logInUser(new Credentials(mail.getText().toString(),password.getText().toString()));
 
         call.enqueue(new Callback<UserLogIn>() {
             @Override
             public void onResponse(Call<UserLogIn> call, Response<UserLogIn> response) {
                 switch (response.code()) {
                     case 200:
+                        Toast.makeText(getApplicationContext(),"OK", Toast.LENGTH_LONG).show();
+
                         Intent i = new Intent(MainLogIn.this, MainObjects.class);
                         startActivity(i);
                         break;

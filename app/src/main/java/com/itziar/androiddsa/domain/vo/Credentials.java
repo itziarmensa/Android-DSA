@@ -3,20 +3,20 @@ package com.itziar.androiddsa.domain.vo;
 import java.util.Objects;
 
 public class Credentials {
-    EmailAddress email;
+    String email;
     String password;
 
     public Credentials() {}
-    public Credentials(EmailAddress email,String password){
+    public Credentials(String email,String password){
         this.email=email;
         this.password=password;
     }
 
-    public EmailAddress getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(EmailAddress email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -28,7 +28,4 @@ public class Credentials {
         this.password = password;
     }
 
-    public Boolean isEqual(Credentials credentials){
-        return (this.email.isEqual(credentials.getEmail())&& Objects.equals(this.password,credentials.getPassword()));
-    }
 }
