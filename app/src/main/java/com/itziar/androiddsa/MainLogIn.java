@@ -48,7 +48,6 @@ public class MainLogIn extends AppCompatActivity {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 switch (response.code()) {
                     case 200:
-                        Toast.makeText(getApplicationContext(),"OK", Toast.LENGTH_LONG).show();
                         Intent i = new Intent(MainLogIn.this, MainObjects.class);
                         startActivity(i);
                         break;

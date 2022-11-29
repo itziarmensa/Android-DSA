@@ -2,6 +2,7 @@ package com.itziar.androiddsa.retrofit;
 
 import com.itziar.androiddsa.domain.MyObjects;
 import com.itziar.androiddsa.domain.User;
+import com.itziar.androiddsa.domain.to.ObjectRecycler;
 import com.itziar.androiddsa.domain.to.UserRegister;
 import com.itziar.androiddsa.domain.vo.Credentials;
 
