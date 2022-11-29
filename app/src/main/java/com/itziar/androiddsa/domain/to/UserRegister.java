@@ -1,4 +1,4 @@
-package com.itziar.androiddsa.domain;
+package com.itziar.androiddsa.domain.to;
 
 
 import com.itziar.androiddsa.domain.vo.Credentials;
@@ -8,12 +8,15 @@ public class UserRegister {
     String userSurname;
     String birthDate;
     Credentials credentials;
-    public UserRegister(){}
-    public UserRegister(String userName,String userSurname,String birthDate,Credentials credentials){
-        this.userName=userName;
-        this.userSurname=userSurname;
-        this.birthDate=birthDate;
-        this.credentials=credentials;
+
+    public UserRegister() {
+    }
+
+    public UserRegister(String userName, String userSurname, String birthDate, Credentials credentials) {
+        this.userName = userName;
+        this.userSurname = userSurname;
+        this.birthDate = birthDate;
+        this.credentials = credentials;
     }
 
     public String getUserName() {

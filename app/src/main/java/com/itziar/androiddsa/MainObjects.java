@@ -8,7 +8,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.itziar.androiddsa.domain.MyObjects;
-import com.itziar.androiddsa.domain.UserLogIn;
 import com.itziar.androiddsa.retrofit.Api;
 
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.itziar.androiddsa.retrofit;
 
 import com.itziar.androiddsa.domain.MyObjects;
-import com.itziar.androiddsa.domain.UserLogIn;
-import com.itziar.androiddsa.domain.UserRegister;
+import com.itziar.androiddsa.domain.User;
+import com.itziar.androiddsa.domain.to.UserRegister;
 import com.itziar.androiddsa.domain.vo.Credentials;
 
 import java.util.List;
@@ -15,15 +15,19 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface Api {
+    String URL = "http://147.83.7.205:80/dsaApp/";
 
-    @POST("User/login/")
-    Call<UserLogIn> logInUser(@Body Credentials credentials);
+    @POST("User/login")
+    Call<Void> logInUser(@Body Credentials credentials);
 
-    @POST("/user")
-    Call<UserRegister> registerUser(@Body UserRegister userRegister);
+    @POST("User/user")
+    Call<User> registerUser(@Body UserRegister userRegister);
 
-    @GET("MyObjects/")
+    @GET("User/MyObjects")
     Call<List<MyObjects>> getListObjects();
 
-
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
 }
