@@ -53,7 +53,6 @@ public class MainRegister extends AppCompatActivity {
             public void onResponse(Call<User> call, Response<User> response) {
                 switch (response.code()) {
                     case 201:
-                        Toast.makeText(getApplicationContext(),"OK", Toast.LENGTH_LONG).show();
                         Intent i = new Intent(MainRegister.this, MainLogIn.class);
                         startActivity(i);
                         break;

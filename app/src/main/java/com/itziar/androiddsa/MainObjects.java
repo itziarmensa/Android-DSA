@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +44,6 @@ public class MainObjects extends AppCompatActivity {
 
         getListObjects();
 
-
     }
 
     private void getListObjects(){
@@ -55,6 +56,7 @@ public class MainObjects extends AppCompatActivity {
                 listObjects = response.body();
                 adapterDatos = new AdapterDatos(listObjects);
                 recycler.setAdapter(adapterDatos);
+
             }
 
             @Override
