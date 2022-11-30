@@ -18,13 +18,13 @@ import retrofit2.http.POST;
 public interface Api {
     String URL = "http://147.83.7.205:80/dsaApp/";
 
-    @POST("User/login")
+    @POST("user/login")
     Call<Void> logInUser(@Body Credentials credentials);
 
-    @POST("User/user")
+    @POST("user")
     Call<User> registerUser(@Body UserRegister userRegister);
 
-    @GET("User/MyObjects")
+    @GET("myObjects")
     Call<List<MyObjects>> getListObjects();
 
     Retrofit retrofit = new Retrofit.Builder()

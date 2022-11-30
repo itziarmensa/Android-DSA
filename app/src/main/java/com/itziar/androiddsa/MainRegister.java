@@ -52,12 +52,15 @@ public class MainRegister extends AppCompatActivity {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 switch (response.code()) {
-                    case 201:
+                    case 200:
                         Intent i = new Intent(MainRegister.this, MainLogIn.class);
                         startActivity(i);
                         break;
-                    case 409:
-                        Toast.makeText(getApplicationContext(),"Missing information", Toast.LENGTH_LONG).show();
+                    case 406:
+                        Toast.makeText(getApplicationContext(),"User already exists", Toast.LENGTH_LONG).show();
+                        break;
+                    case 500:
+                        Toast.makeText(getApplicationContext(),"Missing Information", Toast.LENGTH_LONG).show();
                         break;
                 }
             }

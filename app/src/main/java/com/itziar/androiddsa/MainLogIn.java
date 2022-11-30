@@ -51,11 +51,11 @@ public class MainLogIn extends AppCompatActivity {
                         Intent i = new Intent(MainLogIn.this, MainObjects.class);
                         startActivity(i);
                         break;
-                    case 500:
-                        Toast.makeText(getApplicationContext(),"Missing information", Toast.LENGTH_LONG).show();
+                    case 404:
+                        Toast.makeText(getApplicationContext(),"Not Found", Toast.LENGTH_LONG).show();
                         break;
-                    case 501:
-                        Toast.makeText(getApplicationContext(),"Error", Toast.LENGTH_LONG).show();
+                    case 500:
+                        Toast.makeText(getApplicationContext(),"Missing Information", Toast.LENGTH_LONG).show();
                         break;
                 }
             }
