@@ -54,7 +54,12 @@ public class MainObjects extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<MyObjects>> call, Response<List<MyObjects>> response) {
                 listObjects = response.body();
-                adapterDatos = new AdapterDatos(listObjects);
+                adapterDatos = new AdapterDatos(listObjects, new AdapterDatos.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(MyObjects object) {
+                        moveToDescription(object);
+                    }
+                });
                 recycler.setAdapter(adapterDatos);
 
             }
@@ -64,5 +69,11 @@ public class MainObjects extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void moveToDescription(MyObjects object) {
+        Intent i = new Intent(MainObjects.this, MainObjectDetails.class);
+        i.putExtra("Details",object);
+        startActivity(i);
     }
 }

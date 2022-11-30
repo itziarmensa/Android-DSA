@@ -1,6 +1,8 @@
 package com.itziar.androiddsa.domain.to;
 
-public class ObjectRecycler {
+import java.io.Serializable;
+
+public class ObjectRecycler implements Serializable {
 
     String name;
     String description;

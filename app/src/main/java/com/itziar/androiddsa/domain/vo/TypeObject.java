@@ -1,6 +1,8 @@
 package com.itziar.androiddsa.domain.vo;
 
-public class TypeObject {
+import java.io.Serializable;
+
+public class TypeObject implements Serializable {
 
     private String idType;
     private String description;

@@ -2,8 +2,10 @@ package com.itziar.androiddsa.domain;
 
 import com.itziar.androiddsa.domain.vo.TypeObject;
 
+import java.io.Serializable;
 
-public class MyObjects {
+
+public class MyObjects implements Serializable {
 
     private String idObject;
     private String name;

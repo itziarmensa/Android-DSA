@@ -21,9 +21,16 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
 
     private List<MyObjects> listObjects;
 
+    final AdapterDatos.OnItemClickListener listener;
 
-    public AdapterDatos(List<MyObjects> listObjects) {
+    public interface OnItemClickListener{
+        void onItemClick(MyObjects object);
+    }
+
+
+    public AdapterDatos(List<MyObjects> listObjects, AdapterDatos.OnItemClickListener listener) {
         this.listObjects = listObjects;
+        this.listener = listener;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -35,6 +42,17 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
             super(itemView);
             name = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.description);
+        }
+
+        void binData(final MyObjects object){
+            name.setText(object.getName());
+            description.setText("Clica para ver más detalles");
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(object);
+                }
+            });
         }
 
     }
@@ -50,16 +68,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
 
     @Override //Hace la comunicación entre el adaptador y la clase ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.name.setText(listObjects.get(position).getName());
-        holder.description.setText(listObjects.get(position).getDescriptionObject());
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(holder.itemView.getContext(), MainObjectDetails.class);
-                holder.itemView.getContext().startActivity(i);
-            }
-        });
+        holder.binData(listObjects.get(position));
     }
 
     @Override

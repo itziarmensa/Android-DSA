@@ -3,7 +3,9 @@ package com.itziar.androiddsa.domain.to;
 
 import com.itziar.androiddsa.domain.vo.Credentials;
 
-public class UserRegister {
+import java.io.Serializable;
+
+public class UserRegister implements Serializable {
     String userName;
     String userSurname;
     String birthDate;

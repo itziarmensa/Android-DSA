@@ -1,8 +1,9 @@
 package com.itziar.androiddsa.domain.vo;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class EmailAddress {
+public class EmailAddress implements Serializable {
     String email;
 
     public EmailAddress() {

@@ -3,7 +3,9 @@ package com.itziar.androiddsa.domain;
 import com.itziar.androiddsa.domain.vo.Credentials;
 import com.itziar.androiddsa.domain.vo.RandomId;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     String userName;
     String userSurname;
     String userBirth;

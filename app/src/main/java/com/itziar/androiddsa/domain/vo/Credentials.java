@@ -1,8 +1,9 @@
 package com.itziar.androiddsa.domain.vo;
 
-import java.util.Objects;
+import java.io.Serializable;
+import java.util.Objects ;
 
-public class Credentials {
+public class Credentials implements Serializable {
     EmailAddress email;
     String password;
 
