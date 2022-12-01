@@ -1,6 +1,6 @@
-package com.itziar.androiddsa.domain;
+package com.grupo3.androiddsa.domain;
 
-import com.itziar.androiddsa.domain.vo.TypeObject;
+import com.grupo3.androiddsa.domain.vo.TypeObject;
 
 import java.io.Serializable;
 

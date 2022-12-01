@@ -1,4 +1,4 @@
-package com.itziar.androiddsa;
+package com.grupo3.androiddsa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.itziar.androiddsa.domain.vo.Credentials;
-import com.itziar.androiddsa.domain.vo.EmailAddress;
-import com.itziar.androiddsa.retrofit.Api;
+import com.grupo3.androiddsa.domain.vo.Credentials;
+import com.grupo3.androiddsa.domain.vo.EmailAddress;
+import com.grupo3.androiddsa.retrofit.Api;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,7 +52,7 @@ public class MainLogIn extends AppCompatActivity {
                         startActivity(i);
                         break;
                     case 404:
-                        Toast.makeText(getApplicationContext(),"Not Found", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Not found", Toast.LENGTH_LONG).show();
                         break;
                     case 500:
                         Toast.makeText(getApplicationContext(),"Missing Information", Toast.LENGTH_LONG).show();

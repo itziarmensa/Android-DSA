@@ -1,4 +1,4 @@
-package com.itziar.androiddsa.recycler;
+package com.grupo3.androiddsa.recycler;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.itziar.androiddsa.MainObjectDetails;
-import com.itziar.androiddsa.R;
-import com.itziar.androiddsa.domain.MyObjects;
-import com.itziar.androiddsa.domain.to.ObjectRecycler;
+import com.grupo3.androiddsa.MainObjectDetails;
+import com.grupo3.androiddsa.R;
+import com.grupo3.androiddsa.domain.MyObjects;
+import com.grupo3.androiddsa.domain.to.ObjectRecycler;
 
 import java.util.List;
 

@@ -1,11 +1,11 @@
-package com.itziar.androiddsa;
+package com.grupo3.androiddsa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.itziar.androiddsa.domain.MyObjects;
+import com.grupo3.androiddsa.domain.MyObjects;
 
 public class MainObjectDetails extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.itziar.androiddsa;
+package com.grupo3.androiddsa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,11 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.itziar.androiddsa.domain.User;
-import com.itziar.androiddsa.domain.to.UserRegister;
-import com.itziar.androiddsa.domain.vo.Credentials;
-import com.itziar.androiddsa.domain.vo.EmailAddress;
-import com.itziar.androiddsa.retrofit.Api;
+import com.grupo3.androiddsa.domain.User;
+import com.grupo3.androiddsa.domain.to.UserRegister;
+import com.grupo3.androiddsa.domain.vo.Credentials;
+import com.grupo3.androiddsa.domain.vo.EmailAddress;
+import com.grupo3.androiddsa.retrofit.Api;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +44,7 @@ public class MainRegister extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void register(View view){
+    public void registerUser(View view) {
         Api service = Api.retrofit.create(Api.class);
         Credentials credentials = new Credentials(new EmailAddress(mailRegister.getText().toString()), passwordRegister.getText().toString());
         Call<User> call = service.registerUser(new UserRegister(name.getText().toString(), surname.getText().toString(), birthdate.getText().toString(), credentials));

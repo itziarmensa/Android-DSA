@@ -1,4 +1,4 @@
-package com.itziar.androiddsa;
+package com.grupo3.androiddsa;
 
 import org.junit.Test;
 

@@ -105,7 +105,7 @@
         android:text="@string/ok"
         android:textColor="#4A148C"
         app:backgroundTint="#8AAA8C"
-        android:onClick="register"
+        android:onClick="registerUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.261"
         app:layout_constraintStart_toStartOf="parent"

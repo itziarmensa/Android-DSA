@@ -1,10 +1,10 @@
-package com.itziar.androiddsa.retrofit;
+package com.grupo3.androiddsa.retrofit;
 
-import com.itziar.androiddsa.domain.MyObjects;
-import com.itziar.androiddsa.domain.User;
-import com.itziar.androiddsa.domain.to.ObjectRecycler;
-import com.itziar.androiddsa.domain.to.UserRegister;
-import com.itziar.androiddsa.domain.vo.Credentials;
+import com.grupo3.androiddsa.domain.MyObjects;
+import com.grupo3.androiddsa.domain.User;
+import com.grupo3.androiddsa.domain.to.ObjectRecycler;
+import com.grupo3.androiddsa.domain.to.UserRegister;
+import com.grupo3.androiddsa.domain.vo.Credentials;
 
 import java.util.List;
 

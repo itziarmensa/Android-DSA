@@ -1,4 +1,4 @@
-package com.itziar.androiddsa.domain.vo;
+package com.grupo3.androiddsa.domain.vo;
 
 import java.io.Serializable;
 import java.util.Objects ;

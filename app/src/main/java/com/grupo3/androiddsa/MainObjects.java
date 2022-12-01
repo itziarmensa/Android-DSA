@@ -1,4 +1,4 @@
-package com.itziar.androiddsa;
+package com.grupo3.androiddsa;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -12,10 +12,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.itziar.androiddsa.domain.MyObjects;
-import com.itziar.androiddsa.domain.to.ObjectRecycler;
-import com.itziar.androiddsa.recycler.AdapterDatos;
-import com.itziar.androiddsa.retrofit.Api;
+import com.grupo3.androiddsa.domain.MyObjects;
+import com.grupo3.androiddsa.domain.to.ObjectRecycler;
+import com.grupo3.androiddsa.recycler.AdapterDatos;
+import com.grupo3.androiddsa.retrofit.Api;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package com.itziar.androiddsa.domain.to;
+package com.grupo3.androiddsa.domain.to;
 
 import java.io.Serializable;
 

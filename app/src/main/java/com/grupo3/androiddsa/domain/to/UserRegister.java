@@ -1,7 +1,7 @@
-package com.itziar.androiddsa.domain.to;
+package com.grupo3.androiddsa.domain.to;
 
 
-import com.itziar.androiddsa.domain.vo.Credentials;
+import com.grupo3.androiddsa.domain.vo.Credentials;
 
 import java.io.Serializable;
 
