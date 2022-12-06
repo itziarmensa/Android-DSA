@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.grupo3.androiddsa.domain.vo.Credentials;
@@ -22,8 +23,11 @@ public class MainLogIn extends AppCompatActivity {
     Button btnLogIn, btnRegister;
     EditText mail, password;
 
+    private ProgressBar progressBarLogIn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
 
@@ -40,14 +44,19 @@ public class MainLogIn extends AppCompatActivity {
     }
 
     public void logIn(View view){
+
         Api service = Api.retrofit.create(Api.class);
         Call<Void> call = service.logInUser(new Credentials(new EmailAddress(mail.getText().toString()),password.getText().toString()));
 
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+                progressBarLogIn = findViewById(R.id.progressBarLogIn);
+                progressBarLogIn.setVisibility(View.GONE);
+
                 switch (response.code()) {
                     case 200:
+
                         Intent i = new Intent(MainLogIn.this, MainObjects.class);
                         startActivity(i);
                         break;

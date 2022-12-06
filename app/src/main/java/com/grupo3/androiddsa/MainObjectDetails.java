@@ -3,6 +3,8 @@ package com.grupo3.androiddsa;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.grupo3.androiddsa.domain.MyObjects;
@@ -11,6 +13,8 @@ public class MainObjectDetails extends AppCompatActivity {
 
     TextView name;
     TextView details;
+
+    private ProgressBar progressBarObjectDetails;
 
 
     @Override
@@ -23,11 +27,12 @@ public class MainObjectDetails extends AppCompatActivity {
 
         MyObjects object = (MyObjects) getIntent().getSerializableExtra("Details");
 
+        progressBarObjectDetails = findViewById(R.id.progressBarObjectDetails);
         name.setText(object.getName());
         details.setText("Descripción: "+object.getDescriptionObject()+"\n"+
                 "Monedas: "+object.getCoins()+"\n"+
                 "Tipo de objeto: "+object.getTypeObject().getDescription()+"\n");
 
+        progressBarObjectDetails.setVisibility(View.GONE);
     }
-
 }

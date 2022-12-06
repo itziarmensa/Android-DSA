@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class MainObjects extends AppCompatActivity {
     private List<MyObjects> listObjects;
     private RecyclerView recycler;
     private AdapterDatos adapterDatos;
+    private ProgressBar progressBarStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class MainObjects extends AppCompatActivity {
         call.enqueue(new Callback<List<MyObjects>>() {
             @Override
             public void onResponse(Call<List<MyObjects>> call, Response<List<MyObjects>> response) {
+                progressBarStore = findViewById(R.id.progressBarStore);
                 listObjects = response.body();
                 adapterDatos = new AdapterDatos(listObjects, new AdapterDatos.OnItemClickListener() {
                     @Override
@@ -62,6 +65,7 @@ public class MainObjects extends AppCompatActivity {
                     }
                 });
                 recycler.setAdapter(adapterDatos);
+                progressBarStore.setVisibility(View.GONE);
 
             }
 
