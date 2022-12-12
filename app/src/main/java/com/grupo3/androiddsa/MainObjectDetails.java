@@ -14,7 +14,7 @@ public class MainObjectDetails extends AppCompatActivity {
     TextView name;
     TextView details;
 
-    private ProgressBar progressBarObjectDetails;
+
 
 
     @Override
@@ -27,12 +27,11 @@ public class MainObjectDetails extends AppCompatActivity {
 
         MyObjects object = (MyObjects) getIntent().getSerializableExtra("Details");
 
-        progressBarObjectDetails = findViewById(R.id.progressBarObjectDetails);
         name.setText(object.getName());
         details.setText("Descripción: "+object.getDescriptionObject()+"\n"+
                 "Monedas: "+object.getCoins()+"\n"+
                 "Tipo de objeto: "+object.getTypeObject().getDescription()+"\n");
 
-        progressBarObjectDetails.setVisibility(View.GONE);
+
     }
 }

@@ -49,6 +49,8 @@ public class MainRegister extends AppCompatActivity {
         mailRegister = findViewById(R.id.mailRegister);
         passwordRegister = findViewById(R.id.passwordRegister);
 
+        progressBarRegister = findViewById(R.id.progressBarRegister);
+
         Calendar calendar =  Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
@@ -82,6 +84,7 @@ public class MainRegister extends AppCompatActivity {
     }
 
     public void registerUser(View view) {
+        progressBarRegister.setVisibility(View.VISIBLE);
         Api service = Api.retrofit.create(Api.class);
         Credentials credentials = new Credentials(new EmailAddress(mailRegister.getText().toString()), passwordRegister.getText().toString());
         Call<User> call = service.registerUser(new UserRegister(name.getText().toString(), surname.getText().toString(), birthdate.getText().toString(), credentials));
@@ -89,7 +92,6 @@ public class MainRegister extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                progressBarRegister = findViewById(R.id.progressBarRegister);
                 progressBarRegister.setVisibility(View.GONE);
                 switch (response.code()) {
                     case 200:
@@ -108,6 +110,7 @@ public class MainRegister extends AppCompatActivity {
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Fail", Toast.LENGTH_LONG).show();
+                progressBarRegister.setVisibility(View.GONE);
             }
         });
     }

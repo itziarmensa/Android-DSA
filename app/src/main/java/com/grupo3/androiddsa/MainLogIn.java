@@ -36,6 +36,8 @@ public class MainLogIn extends AppCompatActivity {
 
         mail = findViewById(R.id.email);
         password = findViewById(R.id.password);
+
+        progressBarLogIn = findViewById(R.id.progressBarLogIn);
     }
 
     public void addUser(View view){
@@ -44,19 +46,17 @@ public class MainLogIn extends AppCompatActivity {
     }
 
     public void logIn(View view){
-
+        progressBarLogIn.setVisibility(View.VISIBLE);
         Api service = Api.retrofit.create(Api.class);
         Call<Void> call = service.logInUser(new Credentials(new EmailAddress(mail.getText().toString()),password.getText().toString()));
 
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                progressBarLogIn = findViewById(R.id.progressBarLogIn);
                 progressBarLogIn.setVisibility(View.GONE);
 
                 switch (response.code()) {
                     case 200:
-
                         Intent i = new Intent(MainLogIn.this, MainObjects.class);
                         startActivity(i);
                         break;
@@ -72,6 +72,7 @@ public class MainLogIn extends AppCompatActivity {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Fail", Toast.LENGTH_LONG).show();
+                progressBarLogIn.setVisibility(View.GONE);
             }
         });
     }

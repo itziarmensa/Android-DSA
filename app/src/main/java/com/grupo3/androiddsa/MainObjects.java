@@ -47,16 +47,18 @@ public class MainObjects extends AppCompatActivity {
 
         getListObjects();
 
+        progressBarStore = findViewById(R.id.progressBarStore);
+
     }
 
     private void getListObjects(){
+        progressBarStore.setVisibility(View.VISIBLE);
         Api service = Api.retrofit.create(Api.class);
         Call<List<MyObjects>> call = service.getListObjects();
 
         call.enqueue(new Callback<List<MyObjects>>() {
             @Override
             public void onResponse(Call<List<MyObjects>> call, Response<List<MyObjects>> response) {
-                progressBarStore = findViewById(R.id.progressBarStore);
                 listObjects = response.body();
                 adapterDatos = new AdapterDatos(listObjects, new AdapterDatos.OnItemClickListener() {
                     @Override
@@ -66,12 +68,12 @@ public class MainObjects extends AppCompatActivity {
                 });
                 recycler.setAdapter(adapterDatos);
                 progressBarStore.setVisibility(View.GONE);
-
             }
 
             @Override
             public void onFailure(Call<List<MyObjects>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                progressBarStore.setVisibility(View.GONE);
             }
         });
     }
