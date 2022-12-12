@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.Visibility;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,9 +46,10 @@ public class MainObjects extends AppCompatActivity {
         recycler = (RecyclerView) findViewById(R.id.recyclerView);
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
+        progressBarStore = findViewById(R.id.progressBarStore);
+
         getListObjects();
 
-        progressBarStore = findViewById(R.id.progressBarStore);
 
     }
 
@@ -59,6 +61,7 @@ public class MainObjects extends AppCompatActivity {
         call.enqueue(new Callback<List<MyObjects>>() {
             @Override
             public void onResponse(Call<List<MyObjects>> call, Response<List<MyObjects>> response) {
+                progressBarStore.setVisibility(View.GONE);
                 listObjects = response.body();
                 adapterDatos = new AdapterDatos(listObjects, new AdapterDatos.OnItemClickListener() {
                     @Override
@@ -67,7 +70,6 @@ public class MainObjects extends AppCompatActivity {
                     }
                 });
                 recycler.setAdapter(adapterDatos);
-                progressBarStore.setVisibility(View.GONE);
             }
 
             @Override
