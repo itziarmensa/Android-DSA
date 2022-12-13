@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.grupo3.androiddsa.MainObjectDetails;
 import com.grupo3.androiddsa.R;
+import com.grupo3.androiddsa.domain.Characters;
 import com.grupo3.androiddsa.domain.MyObjects;
 import com.grupo3.androiddsa.domain.to.ObjectRecycler;
 

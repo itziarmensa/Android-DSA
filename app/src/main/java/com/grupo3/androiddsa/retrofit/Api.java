@@ -1,5 +1,6 @@
 package com.grupo3.androiddsa.retrofit;
 
+import com.grupo3.androiddsa.domain.Characters;
 import com.grupo3.androiddsa.domain.MyObjects;
 import com.grupo3.androiddsa.domain.User;
 import com.grupo3.androiddsa.domain.to.ObjectRecycler;
@@ -26,6 +27,9 @@ public interface Api {
 
     @GET("gameManager/myObjects")
     Call<List<MyObjects>> getListObjects();
+
+    @GET("gameManager/characters")
+    Call<List<Characters>> getListCharacters();
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL)

@@ -20,4 +20,7 @@
     <string name="textview">TextView</string>
     <string name="title_object">Title object</string>
     <string name="textview_details">TextView</string>
+    <string name="list_of_characters">List of Characters</string>
+    <string name="character">Character</string>
+    <string name="textviewDetailsCharacter">Detail Character</string>
 </resources>
