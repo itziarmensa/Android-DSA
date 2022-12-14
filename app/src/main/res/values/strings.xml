@@ -23,4 +23,6 @@
     <string name="list_of_characters">List of Characters</string>
     <string name="character">Character</string>
     <string name="textviewDetailsCharacter">Detail Character</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="cerrar_sesi_ngggg">Cerrar Sesión</string>
 </resources>

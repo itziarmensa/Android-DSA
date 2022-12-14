@@ -1,38 +1,31 @@
 package com.grupo3.androiddsa;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.transition.Visibility;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.grupo3.androiddsa.domain.MyObjects;
-import com.grupo3.androiddsa.domain.to.ObjectRecycler;
 import com.grupo3.androiddsa.recycler.AdapterDatos;
 import com.grupo3.androiddsa.retrofit.Api;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainObjects extends AppCompatActivity {
 
+    Button btnCerrarSesion;
     private List<MyObjects> listObjects;
     private RecyclerView recycler;
     private AdapterDatos adapterDatos;
@@ -43,6 +36,7 @@ public class MainObjects extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.objects_main);
 
+        btnCerrarSesion=findViewById(R.id.btnCerrarSesion);
         recycler = (RecyclerView) findViewById(R.id.recyclerView);
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
@@ -83,6 +77,15 @@ public class MainObjects extends AppCompatActivity {
     private void moveToDescription(MyObjects object) {
         Intent i = new Intent(MainObjects.this, MainObjectDetails.class);
         i.putExtra("Details",object);
+        startActivity(i);
+    }
+
+    public void cerrarSesion(View view) {
+        SharedPreferences preferencias=getSharedPreferences("datos",Context.MODE_PRIVATE);
+        SharedPreferences.Editor Obj_editor=preferencias.edit();
+        Obj_editor.putBoolean("isLogged",false);
+        Obj_editor.apply();
+        Intent i = new Intent(MainObjects.this, MainLogIn.class);
         startActivity(i);
     }
 }
