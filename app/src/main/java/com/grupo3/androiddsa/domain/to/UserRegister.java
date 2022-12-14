@@ -7,17 +7,17 @@ public class UserRegister implements Serializable {
     String userName;
     String userSurname;
     String userBirth;
-    String mail;
+    String email;
     String password;
 
     public UserRegister() {
     }
 
-    public UserRegister(String userName, String userSurname, String userBirth, String mail, String password) {
+    public UserRegister(String userName, String userSurname, String userBirth, String email, String password) {
         this.userName = userName;
         this.userSurname = userSurname;
         this.userBirth = userBirth;
-        this.mail=mail;
+        this.email = email;
         this.password=password;
     }
 
@@ -45,12 +45,12 @@ public class UserRegister implements Serializable {
         this.userBirth = userBirth;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
