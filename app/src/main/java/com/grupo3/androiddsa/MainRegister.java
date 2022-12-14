@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 import com.grupo3.androiddsa.domain.User;
 import com.grupo3.androiddsa.domain.to.UserRegister;
-import com.grupo3.androiddsa.domain.vo.Credentials;
-import com.grupo3.androiddsa.domain.vo.EmailAddress;
 import com.grupo3.androiddsa.retrofit.Api;
 
 import java.util.Calendar;
@@ -85,12 +83,15 @@ public class MainRegister extends AppCompatActivity {
     }
 
     public void registerUser(View view) {
+        if (!passwordRegister.getText().toString().equals(passwordRegister2.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Passwords do not coincide", Toast.LENGTH_LONG).show();
+            return;
+        }
         progressBarRegister.setVisibility(View.VISIBLE);
         Api service = Api.retrofit.create(Api.class);
 
 
-
-        Call<User> call = service.registerUser(new UserRegister(name.getText().toString(), surname.getText().toString(), birthdate.getText().toString(), mailRegister.getText().toString(),passwordRegister.getText().toString()));
+        Call<User> call = service.registerUser(new UserRegister(name.getText().toString(), surname.getText().toString(), birthdate.getText().toString(), mailRegister.getText().toString(), passwordRegister.getText().toString()));
 
         call.enqueue(new Callback<User>() {
             @Override
@@ -98,25 +99,21 @@ public class MainRegister extends AppCompatActivity {
                 progressBarRegister.setVisibility(View.GONE);
                 switch (response.code()) {
                     case 200:
-                        if(passwordRegister.getText().toString().equals(passwordRegister2.getText().toString())) {
-                            Intent i = new Intent(MainRegister.this, MainLogIn.class);
-                            startActivity(i);
-                        }
-                        else
-                            Toast.makeText(getApplicationContext(),"Passwords do not coincide", Toast.LENGTH_LONG).show();
+                        Intent i = new Intent(MainRegister.this, MainLogIn.class);
+                        startActivity(i);
                         break;
                     case 406:
-                        Toast.makeText(getApplicationContext(),"User already exists", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "User already exists", Toast.LENGTH_LONG).show();
                         break;
                     case 500:
-                        Toast.makeText(getApplicationContext(),"Missing Information", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Missing Information", Toast.LENGTH_LONG).show();
                         break;
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Fail", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_LONG).show();
                 progressBarRegister.setVisibility(View.GONE);
             }
         });

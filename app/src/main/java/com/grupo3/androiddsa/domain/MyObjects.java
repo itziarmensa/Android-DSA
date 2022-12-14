@@ -1,7 +1,5 @@
 package com.grupo3.androiddsa.domain;
 
-import com.grupo3.androiddsa.domain.vo.TypeObject;
-
 import java.io.Serializable;
 
 

@@ -1,24 +1,22 @@
 package com.grupo3.androiddsa.domain.to;
 
 
-import com.grupo3.androiddsa.domain.vo.Credentials;
-
 import java.io.Serializable;
 
 public class UserRegister implements Serializable {
     String userName;
     String userSurname;
-    String birthDate;
+    String userBirth;
     String mail;
     String password;
 
     public UserRegister() {
     }
 
-    public UserRegister(String userName, String userSurname, String birthDate, String mail, String password) {
+    public UserRegister(String userName, String userSurname, String userBirth, String mail, String password) {
         this.userName = userName;
         this.userSurname = userSurname;
-        this.birthDate = birthDate;
+        this.userBirth = userBirth;
         this.mail=mail;
         this.password=password;
     }
@@ -39,12 +37,12 @@ public class UserRegister implements Serializable {
         this.userSurname = userSurname;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    public String getUserBirth() {
+        return userBirth;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setUserBirth(String userBirth) {
+        this.userBirth = userBirth;
     }
 
     public String getMail() {

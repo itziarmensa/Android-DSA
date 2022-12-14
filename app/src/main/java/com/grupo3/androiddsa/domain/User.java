@@ -5,23 +5,33 @@ import com.grupo3.androiddsa.domain.vo.RandomId;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class User implements Serializable{
+    String userId;
     String userName;
     String userSurname;
     String userBirth;
-    Credentials credentials;
-    String userId;
-
-    public User() {
+    String email;
+    String password;
+    public User()
+    {
 
     }
 
-    public User(String userName, String userSurname, String userBirth, Credentials credentials) {
-        this.userId = RandomId.getId(); //En principio lo puse así para tener una Id aleatoria. Hay que hablar de si queremos que siga algún orden o algo
+    public User(String userName, String userSurname, String userBirth, String email, String password) {
+        this.userId= RandomId.getId();
         this.userName = userName;
         this.userSurname = userSurname;
         this.userBirth = userBirth;
-        this.credentials = credentials;
+        this.email = email;
+        this.password = password;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
@@ -48,21 +58,19 @@ public class User implements Serializable {
         this.userBirth = userBirth;
     }
 
-    public Credentials getCredentials() {
-        return credentials;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCredentials(Credentials credentials) {
-        this.credentials = credentials;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-
 }

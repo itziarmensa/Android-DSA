@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.grupo3.androiddsa.domain.vo.Credentials;
-import com.grupo3.androiddsa.domain.vo.EmailAddress;
 import com.grupo3.androiddsa.retrofit.Api;
 
 import retrofit2.Call;
