@@ -46,7 +46,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
         }
 
         void binData(final MyObjects object){
-            name.setText(object.getName());
+            name.setText(object.getObjectName());
             description.setText("Clica para ver más detalles");
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -26,10 +26,10 @@ public class MainObjectDetails extends AppCompatActivity {
 
         MyObjects object = (MyObjects) getIntent().getSerializableExtra("Details");
 
-        name.setText(object.getName());
-        details.setText("Descripción: "+object.getDescriptionObject()+"\n"+
-                "Monedas: "+object.getCoins()+"\n"+
-                "Tipo de objeto: "+object.getTypeObject().getDescription()+"\n");
+        name.setText(object.getObjectName());
+        details.setText("Descripción: "+object.getObjectDescription()+"\n"+
+                "Monedas: "+object.getObjectCoins()+"\n"+
+                "Tipo de objeto: "+object.getObjectTypeId()+"\n");
 
 
     }

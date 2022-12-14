@@ -67,7 +67,9 @@ public class MainLogIn extends AppCompatActivity {
                         SharedPreferences.Editor Obj_editor=preferencias.edit();
                         Obj_editor.putString("mail",mail.getText().toString());
                         Obj_editor.putString("password",password.getText().toString());
-                        Obj_editor.commit();
+                        Obj_editor.putBoolean("isLogged",true);
+                        Obj_editor.apply();
+                        //Obj_editor.commit();
                         Intent i = new Intent(MainLogIn.this, MainObjects.class);
                         startActivity(i);
                         break;
