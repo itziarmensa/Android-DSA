@@ -17,7 +17,7 @@ public class MainSplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_splash_screen);
 
-        SharedPreferences preferencias = getSharedPreferences("login", Context.MODE_PRIVATE);
+        SharedPreferences preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
         Boolean isLogged = preferencias.getBoolean("isLogged", false);
 //-----------------------OP1--------------------------------
         /*TimerTask tarea=new TimerTask() {
