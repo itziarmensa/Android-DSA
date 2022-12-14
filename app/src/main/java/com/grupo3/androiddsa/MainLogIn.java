@@ -2,7 +2,9 @@ package com.grupo3.androiddsa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +40,10 @@ public class MainLogIn extends AppCompatActivity {
         password = findViewById(R.id.password);
 
         progressBarLogIn = findViewById(R.id.progressBarLogIn);
+
+        SharedPreferences preferences=getSharedPreferences("datos", Context.MODE_PRIVATE);
+        mail.setText(preferences.getString("mail",""));
+        password.setText(preferences.getString("password",""));
     }
 
     public void addUser(View view){
@@ -48,7 +54,7 @@ public class MainLogIn extends AppCompatActivity {
     public void logIn(View view){
         progressBarLogIn.setVisibility(View.VISIBLE);
         Api service = Api.retrofit.create(Api.class);
-        Call<Void> call = service.logInUser(new Credentials(new EmailAddress(mail.getText().toString()),password.getText().toString()));
+        Call<Void> call = service.logInUser(new Credentials(mail.getText().toString(),password.getText().toString()));
 
         call.enqueue(new Callback<Void>() {
             @Override
@@ -57,6 +63,11 @@ public class MainLogIn extends AppCompatActivity {
 
                 switch (response.code()) {
                     case 200:
+                        SharedPreferences preferencias=getSharedPreferences("datos",Context.MODE_PRIVATE);
+                        SharedPreferences.Editor Obj_editor=preferencias.edit();
+                        Obj_editor.putString("mail",mail.getText().toString());
+                        Obj_editor.putString("password",password.getText().toString());
+                        Obj_editor.commit();
                         Intent i = new Intent(MainLogIn.this, MainObjects.class);
                         startActivity(i);
                         break;

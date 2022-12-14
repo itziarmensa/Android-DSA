@@ -64,7 +64,5 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
-    public Boolean hasEmail(Credentials credentials) {
-        return this.credentials.getEmail().isEqual(credentials.getEmail());
-    }
+
 }

@@ -9,16 +9,18 @@ public class UserRegister implements Serializable {
     String userName;
     String userSurname;
     String birthDate;
-    Credentials credentials;
+    String mail;
+    String password;
 
     public UserRegister() {
     }
 
-    public UserRegister(String userName, String userSurname, String birthDate, Credentials credentials) {
+    public UserRegister(String userName, String userSurname, String birthDate, String mail, String password) {
         this.userName = userName;
         this.userSurname = userSurname;
         this.birthDate = birthDate;
-        this.credentials = credentials;
+        this.mail=mail;
+        this.password=password;
     }
 
     public String getUserName() {
@@ -45,11 +47,19 @@ public class UserRegister implements Serializable {
         this.birthDate = birthDate;
     }
 
-    public Credentials getCredentials() {
-        return credentials;
+    public String getMail() {
+        return mail;
     }
 
-    public void setCredentials(Credentials credentials) {
-        this.credentials = credentials;
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

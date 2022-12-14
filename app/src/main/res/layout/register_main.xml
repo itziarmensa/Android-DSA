@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".MainRegister">
 
+    <EditText
+        android:id="@+id/passwordRegister2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="Repeat Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mailRegister" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -101,13 +117,13 @@
         android:id="@+id/btnOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="76dp"
+        android:onClick="registerUser"
         android:text="@string/ok"
         android:textColor="#4A148C"
         app:backgroundTint="#8AAA8C"
-        android:onClick="registerUser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.261"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordRegister" />
 
@@ -115,13 +131,13 @@
         android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="76dp"
+        android:onClick="btnCancel"
         android:text="@string/cancel"
         android:textColor="#4A148C"
         app:backgroundTint="#8AAA8C"
-        android:onClick="btnCancel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toEndOf="@+id/btnOk"
         app:layout_constraintTop_toBottomOf="@+id/passwordRegister" />
 

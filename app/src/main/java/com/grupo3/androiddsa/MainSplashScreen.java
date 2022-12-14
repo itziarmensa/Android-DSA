@@ -14,6 +14,7 @@ public class MainSplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_splash_screen);
+        
 
         TimerTask tarea=new TimerTask() {
             @Override

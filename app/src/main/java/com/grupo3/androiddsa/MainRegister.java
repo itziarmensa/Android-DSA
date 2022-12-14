@@ -29,7 +29,7 @@ import retrofit2.Response;
 public class MainRegister extends AppCompatActivity {
 
     Button btnOK, btnCancel;
-    EditText name ,surname , birthdate, mailRegister, passwordRegister;
+    EditText name ,surname , birthdate, mailRegister, passwordRegister,passwordRegister2;
 
     DatePickerDialog.OnDateSetListener setListener;
 
@@ -48,6 +48,7 @@ public class MainRegister extends AppCompatActivity {
         birthdate = findViewById(R.id.birthdate);
         mailRegister = findViewById(R.id.mailRegister);
         passwordRegister = findViewById(R.id.passwordRegister);
+        passwordRegister2 = findViewById(R.id.passwordRegister2);
 
         progressBarRegister = findViewById(R.id.progressBarRegister);
 
@@ -86,8 +87,10 @@ public class MainRegister extends AppCompatActivity {
     public void registerUser(View view) {
         progressBarRegister.setVisibility(View.VISIBLE);
         Api service = Api.retrofit.create(Api.class);
-        Credentials credentials = new Credentials(new EmailAddress(mailRegister.getText().toString()), passwordRegister.getText().toString());
-        Call<User> call = service.registerUser(new UserRegister(name.getText().toString(), surname.getText().toString(), birthdate.getText().toString(), credentials));
+
+
+
+        Call<User> call = service.registerUser(new UserRegister(name.getText().toString(), surname.getText().toString(), birthdate.getText().toString(), mailRegister.getText().toString(),passwordRegister.getText().toString()));
 
         call.enqueue(new Callback<User>() {
             @Override
@@ -95,8 +98,12 @@ public class MainRegister extends AppCompatActivity {
                 progressBarRegister.setVisibility(View.GONE);
                 switch (response.code()) {
                     case 200:
-                        Intent i = new Intent(MainRegister.this, MainLogIn.class);
-                        startActivity(i);
+                        if(passwordRegister.getText().toString().equals(passwordRegister2.getText().toString())) {
+                            Intent i = new Intent(MainRegister.this, MainLogIn.class);
+                            startActivity(i);
+                        }
+                        else
+                            Toast.makeText(getApplicationContext(),"Passwords do not coincide", Toast.LENGTH_LONG).show();
                         break;
                     case 406:
                         Toast.makeText(getApplicationContext(),"User already exists", Toast.LENGTH_LONG).show();
