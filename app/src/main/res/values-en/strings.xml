@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AndroidDSA</string>
     <string name="log_in">Log In</string>
@@ -23,15 +24,8 @@
     <string name="list_of_characters">List of Characters</string>
     <string name="character">Character</string>
     <string name="textviewDetailsCharacter">Detail Character</string>
-    <string name="cerrar_sesi_n">Close Session</string>
-    <string name="cerrar_sesi_ngggg">Close Session</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="cerrar_sesi_ngggg">Cerrar Sesión</string>
     <string name="spn_title">Choose a language</string>
-    <string-array name="dlangs">
-        <item>Spanish</item>
-        <item>English</item>
-        <item>Italian</item>
-        <item>French</item>
-        <item>Portuguese</item>
-    </string-array>
     <string name="btnConfChanges">Apply Changes</string>
 </resources>

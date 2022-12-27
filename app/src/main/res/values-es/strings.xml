@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidDSA</string>
+    <string name="log_in">Iniciar Sesión</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="log_in_button">Iniciar Sesión</string>
+    <string name="register">Registro</string>
+    <string name="register_title">Registro</string>
+    <string name="do_you_not_have_an_account">¿No tienes una cuenta?</string>
+    <string name="surname">Apellido</string>
+    <string name="name">Nombre</string>
+    <string name="password_reg">Contraseña</string>
+    <string name="gmail">Gmail</string>
+    <string name="username_reg">Nombre de usuario</string>
+    <string name="ok">Vale</string>
+    <string name="cancel">Cancelar</string>
+    <string name="gmail_log">Gmail</string>
+    <string name="birth_date">Fecha de Nacimiento</string>
+    <string name="list_of_objects">Lista de objetos</string>
+    <string name="textview">TextView</string>
+    <string name="title_object">Título del objeto</string>
+    <string name="textview_details">TextView</string>
+    <string name="list_of_characters">Lista de Personajes</string>
+    <string name="character">Personajes</string>
+    <string name="textviewDetailsCharacter">Detalles del Personaje</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="cerrar_sesi_ngggg">Cerrar Sesión</string>
+    <string name="spn_title">Elije un idioma</string>
+    <string name="btnConfChanges">Aplicar Cambios</string>
+</resources>

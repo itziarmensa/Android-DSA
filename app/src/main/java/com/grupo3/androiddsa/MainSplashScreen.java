@@ -19,26 +19,7 @@ public class MainSplashScreen extends AppCompatActivity {
 
         SharedPreferences preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
         Boolean isLogged = preferencias.getBoolean("isLogged", false);
-//-----------------------OP1--------------------------------
-        /*TimerTask tarea=new TimerTask() {
-            @Override
-            public void run() {
-                if(isLogged) {
-                    Intent intent = new Intent(MainSplashScreen.this, MainObjects.class);
-                    startActivity(intent);
-                }
-                else{
-                    Intent intent = new Intent(MainSplashScreen.this, MainLogIn.class);
-                    startActivity(intent);
-                }
-                finish();
-            }
-        };
 
-        Timer tiempo=new Timer();
-        tiempo.schedule(tarea,2000);*/
-//---------------------------------------------------
-        //----------------------------OP2---------------
         Thread timerThread = new Thread() {
             public void run() {
                 try {
