@@ -34,4 +34,8 @@
         <item>Portuguese</item>
     </string-array>
     <string name="btnConfChanges">Apply Changes</string>
+    <string name="jugar">Jugar</string>
+    <string name="tienda">Tienda</string>
+    <string name="lista">Lista</string>
+    <string name="play">play</string>
 </resources>

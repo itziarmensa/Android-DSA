@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Lista"
+        android:icon="@drawable/lista3"
+        android:id="@+id/lista"/>
+    <item android:title="Tienda"
+        android:icon="@drawable/tienda"
+        android:id="@+id/tienda"/>
+    <item android:title="Jugar"
+        android:icon="@drawable/play"
+        android:id="@+id/play"/>
+    <item android:title="Perfil"
+        android:icon="@drawable/user"
+        android:id="@+id/perfil"/>
+    <item android:title="Configuración"
+        android:icon="@drawable/settings"
+        android:id="@+id/config"/>
+</menu>
