@@ -3,52 +3,26 @@ package com.grupo3.androiddsa;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.grupo3.androiddsa.databinding.ActivityMainJugarBinding;
+import com.grupo3.androiddsa.AmigosFragment;
+import com.grupo3.androiddsa.JugarFragment;
+import com.grupo3.androiddsa.ProfileFragment;
+import com.grupo3.androiddsa.R;
+import com.grupo3.androiddsa.SettingsFragment;
+import com.grupo3.androiddsa.TiendaFragment;
 
-public class MainJugar extends AppCompatActivity {
+public class MainPrincipal extends AppCompatActivity {
 
-    //ActivityMainJugarBinding binding;
     private Fragment mCurrentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //binding = ActivityMainJugarBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_main_jugar);
-        //replaceFragment(new JugarFragment());
-
-        /*binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch(item.getItemId()){
-                case R.id.lista:
-                    replaceFragment(new AmigosFragment());
-                    break;
-                case R.id.tienda:
-                    replaceFragment(new TiendaFragment());
-                    break;
-                case R.id.play:
-                    replaceFragment(new JugarFragment());
-                    break;
-                case R.id.perfil:
-                    replaceFragment(new ProfileFragment());
-                    break;
-                case R.id.config:
-                    replaceFragment(new SettingsFragment());
-                    break;
-
-            }
-
-
-            return true;
-        });*/
+        setContentView(R.layout.activity_main_principal);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
@@ -83,13 +57,5 @@ public class MainJugar extends AppCompatActivity {
 
         });
     }
-
-    /*private void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout,fragment);
-        fragmentTransaction.commit();
-    }*/
-
 
 }

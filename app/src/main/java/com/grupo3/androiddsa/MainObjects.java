@@ -25,7 +25,6 @@ import retrofit2.Response;
 
 public class MainObjects extends AppCompatActivity {
 
-    Button btnCerrarSesion;
     private List<MyObjects> listObjects;
     private RecyclerView recycler;
     private AdapterDatos adapterDatos;
@@ -36,7 +35,6 @@ public class MainObjects extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.objects_main);
 
-        btnCerrarSesion=findViewById(R.id.btnCerrarSesion);
         recycler = (RecyclerView) findViewById(R.id.recyclerView);
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
@@ -80,12 +78,5 @@ public class MainObjects extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void cerrarSesion(View view) {
-        SharedPreferences preferencias=getSharedPreferences("datos",Context.MODE_PRIVATE);
-        SharedPreferences.Editor Obj_editor=preferencias.edit();
-        Obj_editor.putBoolean("isLogged",false);
-        Obj_editor.apply();
-        Intent i = new Intent(MainObjects.this, MainLogIn.class);
-        startActivity(i);
-    }
+
 }

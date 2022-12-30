@@ -70,7 +70,7 @@ public class MainLogIn extends AppCompatActivity {
                         Obj_editor.apply();
                         //Obj_editor.commit();
                         //Intent i = new Intent(MainLogIn.this, MainObjects.class); funciona
-                        Intent i = new Intent(MainLogIn.this, MainJugar.class);
+                        Intent i = new Intent(MainLogIn.this, MainPrincipal.class);
                         startActivity(i);
                         break;
                     case 404:

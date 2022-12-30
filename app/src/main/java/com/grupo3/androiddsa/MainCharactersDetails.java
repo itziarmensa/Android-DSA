@@ -1,6 +1,8 @@
 package com.grupo3.androiddsa;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.grupo3.androiddsa.R;
 import com.grupo3.androiddsa.domain.Characters;
 
 import android.annotation.SuppressLint;

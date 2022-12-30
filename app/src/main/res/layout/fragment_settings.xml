@@ -6,9 +6,39 @@
     tools:context=".SettingsFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <Spinner
+        android:id="@+id/spn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-100dp"
+        android:entries="@array/dlangs"
+        android:minHeight="48dp"
+        android:prompt="@string/spn_title"
+        android:layout_gravity="center"/>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Settings" />
+        android:id="@+id/tvId"
+        android:layout_width="389dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="300dp"
+        android:layout_gravity="center" />
+
+    <Button
+        android:id="@+id/btnConfChanges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply Changes"
+        android:layout_gravity="center" />
+
+    <Button
+        android:id="@+id/cerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:layout_gravity="bottom"/>
 
 </FrameLayout>

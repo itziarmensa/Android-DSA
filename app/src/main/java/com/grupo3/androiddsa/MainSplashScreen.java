@@ -7,9 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class MainSplashScreen extends AppCompatActivity {
 
     @Override
@@ -28,7 +25,7 @@ public class MainSplashScreen extends AppCompatActivity {
                     e.printStackTrace();
                 } finally {
                     if (isLogged) {
-                        Intent intent = new Intent(MainSplashScreen.this, MainJugar.class);
+                        Intent intent = new Intent(MainSplashScreen.this, MainPrincipal.class);
                         startActivity(intent);
                     } else {
                         Intent intent = new Intent(MainSplashScreen.this, MainLogIn.class);

@@ -11,9 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.grupo3.androiddsa.domain.Characters;
-import com.grupo3.androiddsa.domain.MyObjects;
 import com.grupo3.androiddsa.recycler.AdapterCharacters;
-import com.grupo3.androiddsa.recycler.AdapterDatos;
 import com.grupo3.androiddsa.retrofit.Api;
 
 import java.util.List;

@@ -17,15 +17,8 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MainJugar"
+            android:name=".MainPrincipal"
             android:exported="false" />
-        <activity
-            android:name=".MainSettings"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
             android:name=".MainSplashScreen"
             android:exported="true">

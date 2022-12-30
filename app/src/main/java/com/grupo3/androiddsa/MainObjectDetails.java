@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.grupo3.androiddsa.R;
 import com.grupo3.androiddsa.domain.MyObjects;
 
 public class MainObjectDetails extends AppCompatActivity {
