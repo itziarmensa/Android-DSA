@@ -28,7 +28,7 @@ public class MainSplashScreen extends AppCompatActivity {
                     e.printStackTrace();
                 } finally {
                     if (isLogged) {
-                        Intent intent = new Intent(MainSplashScreen.this, MainObjects.class);
+                        Intent intent = new Intent(MainSplashScreen.this, MainJugar.class);
                         startActivity(intent);
                     } else {
                         Intent intent = new Intent(MainSplashScreen.this, MainLogIn.class);
