@@ -1,20 +1,20 @@
 package com.grupo3.androiddsa;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.grupo3.androiddsa.adapters.AdapterDatos;
 import com.grupo3.androiddsa.domain.MyObjects;
-import com.grupo3.androiddsa.recycler.AdapterDatos;
 import com.grupo3.androiddsa.retrofit.Api;
 
 import java.util.List;
@@ -23,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainObjects extends AppCompatActivity {
+public class ObjetosFragment extends Fragment {
 
     private List<MyObjects> listObjects;
     private RecyclerView recycler;
@@ -31,18 +31,19 @@ public class MainObjects extends AppCompatActivity {
     private ProgressBar progressBarStore;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.objects_main);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_objetos, container, false);
 
-        recycler = (RecyclerView) findViewById(R.id.recyclerView);
-        recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recycler = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        recycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
 
-        progressBarStore = findViewById(R.id.progressBarStore);
+        progressBarStore = rootView.findViewById(R.id.progressBarStore);
 
         getListObjects();
 
-
+        return rootView;
     }
 
     private void getListObjects(){
@@ -66,17 +67,15 @@ public class MainObjects extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<MyObjects>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_LONG).show();
                 progressBarStore.setVisibility(View.GONE);
             }
         });
     }
 
     private void moveToDescription(MyObjects object) {
-        Intent i = new Intent(MainObjects.this, MainObjectDetails.class);
+        Intent i = new Intent(getActivity(), MainObjectDetails.class);
         i.putExtra("Details",object);
         startActivity(i);
     }
-
-
 }

@@ -1,4 +1,4 @@
-package com.grupo3.androiddsa.recycler;
+package com.grupo3.androiddsa.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.grupo3.androiddsa.R;
 import com.grupo3.androiddsa.domain.Characters;
-import com.grupo3.androiddsa.domain.MyObjects;
 
 import java.util.List;
 

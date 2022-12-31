@@ -50,9 +50,6 @@
             android:name=".MainObjectDetails"
             android:exported="false" />
         <activity
-            android:name=".MainObjects"
-            android:exported="false" />
-        <activity
             android:name=".MainRegister"
             android:exported="false" />
         <activity

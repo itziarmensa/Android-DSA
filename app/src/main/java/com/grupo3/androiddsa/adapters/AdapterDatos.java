@@ -1,4 +1,4 @@
-package com.grupo3.androiddsa.recycler;
+package com.grupo3.androiddsa.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
