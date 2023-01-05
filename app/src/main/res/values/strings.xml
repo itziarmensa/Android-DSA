@@ -27,19 +27,23 @@
     <string name="cerrar_sesi_ngggg">Close Session</string>
     <string name="spn_title">Choose a language</string>
     <string-array name="dlangs">
-        <item>Spanish</item>
-        <item>English</item>
-        <item>Italian</item>
-        <item>French</item>
-        <item>Portuguese</item>
+        <item name="Spanish">Spanish</item>
+        <item name="English">English</item>
+        <item name="Italian">Italian</item>
+        <item name="French">French</item>
+        <item name="Portuguese">Portuguese</item>
     </string-array>
     <string name="btnConfChanges">Apply Changes</string>
-    <string name="jugar">Jugar</string>
-    <string name="tienda">Tienda</string>
-    <string name="lista">Lista</string>
-    <string name="play">play</string>
+    <string name="jugar">Play</string>
+    <string name="tienda">Shop</string>
+    <string name="lista">List</string>
+    <string name="play">Play</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="objetos">Objetos</string>
-    <string name="personajes">Personajes</string>
+    <string name="objetos">Objects</string>
+    <string name="personajes">Characters</string>
+    <string name="Friends">Friends</string>
+    <string name="Profile">Profile</string>
+    <string name="Apply_Changes">Apply Changes</string>
+    <string name="Repeat_Password">Repeat Password</string>
 </resources>

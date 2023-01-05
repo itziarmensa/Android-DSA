@@ -13,7 +13,7 @@
         android:layout_marginTop="76dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="Repeat Password"
+        android:hint="@string/Repeat_Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:textColorHint="#757575"

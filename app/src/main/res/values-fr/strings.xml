@@ -28,4 +28,15 @@
     <string name="cerrar_sesi_ngggg">Fermer la session</string>
     <string name="spn_title">Choisissez une langue</string>
     <string name="btnConfChanges">Appliquer les modifications</string>
+    <string name="jugar">Jouer</string>
+    <string name="tienda">Boutique</string>
+    <string name="lista">Liste</string>
+    <string name="play">jouer</string>
+    <string name="hello_blank_fragment">Bonjour extrait vierge</string>
+    <string name="objetos">Objets</string>
+    <string name="personajes">Personnages</string>
+    <string name="Friends">Amis</string>
+    <string name="Profile">Profil</string>
+    <string name="Apply_Changes">Appliquer les modifications</string>
+    <string name="Repeat_Password">Répéter le mot de passe</string>
 </resources>

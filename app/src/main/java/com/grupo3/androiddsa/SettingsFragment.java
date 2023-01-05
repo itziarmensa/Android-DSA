@@ -1,5 +1,7 @@
 package com.grupo3.androiddsa;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -42,7 +44,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         tv=(TextView) rootView.findViewById(R.id.tvId);
         Spinner spn=(Spinner) rootView.findViewById(R.id.spn);
         spn.setOnItemSelectedListener(this);
-        SharedPreferences preferences = getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
+        SharedPreferences preferences = getActivity().getSharedPreferences("mi_archivo_preferencias", MODE_PRIVATE);
         tv.setText(preferences.getString("idioma",""));
 
         return rootView;
@@ -52,7 +54,6 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item=parent.getItemAtPosition(position).toString();
         idioma=item;
-        tv.setText("El idioma seleccionado es el: "+item);
     }
 
     @Override
@@ -61,9 +62,19 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     }
 
     public void applyChanges(View view){
+        // Declarar la variable sharedPreferences
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("mi_archivo_preferencias", MODE_PRIVATE);
+
+        // Almacenar el valor de la variable idioma
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("idioma", idioma);
+
+        // Aplicar los cambios
+        editor.apply();
         cambiarIdioma();
         Intent intent = new Intent(getActivity(), MainSplashScreen.class);
         getActivity().startActivity(intent);
+
 
     }
 
@@ -92,7 +103,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     }
 
     public void cerrarSesion(View view) {
-        SharedPreferences preferencias = getActivity().getSharedPreferences("datos",Context.MODE_PRIVATE);
+        SharedPreferences preferencias = getActivity().getSharedPreferences("datos", MODE_PRIVATE);
         SharedPreferences.Editor Obj_editor=preferencias.edit();
         Obj_editor.putBoolean("isLogged",false);
         Obj_editor.apply();

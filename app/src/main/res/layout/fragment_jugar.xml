@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jugar"
-        android:layout_gravity="center"/>
+        android:layout_width="78dp"
+        android:layout_height="33dp"
+        android:layout_gravity="center"
+        android:text="@string/play" />
 </FrameLayout>
