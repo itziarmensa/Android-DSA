@@ -55,6 +55,8 @@
         <activity
             android:name=".MainLogIn"
             android:exported="false" />
+        <service android:name=".ElServicio"/>
+
     </application>
 
 </manifest>

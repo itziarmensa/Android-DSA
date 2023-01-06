@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import java.util.Locale;
+import com.grupo3.androiddsa.ElServicio;
 
 public class MainSplashScreen extends AppCompatActivity {
 
@@ -45,6 +47,12 @@ public class MainSplashScreen extends AppCompatActivity {
 
         }
         res.updateConfiguration(config, res.getDisplayMetrics()); // aplicamos los cambios
+        startService(new Intent(this, ElServicio.class));
+
+
+
+
+
         Thread timerThread = new Thread() {
             public void run() {
                 try {
