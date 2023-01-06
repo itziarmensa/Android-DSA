@@ -49,10 +49,6 @@ public class MainSplashScreen extends AppCompatActivity {
         res.updateConfiguration(config, res.getDisplayMetrics()); // aplicamos los cambios
         startService(new Intent(this, ElServicio.class));
 
-
-
-
-
         Thread timerThread = new Thread() {
             public void run() {
                 try {

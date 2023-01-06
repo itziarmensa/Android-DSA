@@ -39,4 +39,6 @@
     <string name="Profile">Profil</string>
     <string name="Apply_Changes">Appliquer les modifications</string>
     <string name="Repeat_Password">Répéter le mot de passe</string>
+    <string name="Stop_music">Arrêter la musique</string>
+    <string name="Play_music">Mets de la musique</string>
 </resources>

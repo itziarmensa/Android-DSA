@@ -46,4 +46,6 @@
     <string name="Profile">Profile</string>
     <string name="Apply_Changes">Apply Changes</string>
     <string name="Repeat_Password">Repeat Password</string>
+    <string name="Stop_music">Stop the music</string>
+    <string name="Play_music">Play the music</string>
 </resources>

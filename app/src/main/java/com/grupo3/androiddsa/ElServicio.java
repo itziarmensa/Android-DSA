@@ -16,14 +16,14 @@ public class ElServicio extends Service {
 
     @Override
     public void onCreate() {
-        Toast.makeText(this, "Servicio Creado", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Queeeeedate", Toast.LENGTH_LONG).show();
         player = MediaPlayer.create(this, R.raw.quedate);
         player.setLooping(true);
     }
 
     @Override
     public void onDestroy() {
-        Toast.makeText(this, "Servicio Detenido", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, ":(", Toast.LENGTH_LONG).show();
         player.stop();
     }
 
@@ -36,7 +36,7 @@ public class ElServicio extends Service {
 
     @Override
     public void onStart(Intent intent, int startid) {
-        Toast.makeText(this, "Servicio Iniciado", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Queeeeedate que la noche sin ti dueeeele", Toast.LENGTH_LONG).show();
         player.start();
     }
 

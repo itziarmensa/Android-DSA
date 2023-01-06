@@ -26,6 +26,8 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     private TextView tv;
     Button btnConfChanges;
     Button cerrarSesion;
+    Button musicStopBtn;
+    Button musicPlayBtn;
     String idioma;
 
     @Override
@@ -40,6 +42,12 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
 
         cerrarSesion = rootView.findViewById(R.id.cerrarSesion);
         cerrarSesion.setOnClickListener(this);
+
+        musicStopBtn=(Button) rootView.findViewById(R.id.musicStopBtn);
+        musicStopBtn.setOnClickListener(this);
+
+        musicPlayBtn=(Button) rootView.findViewById(R.id.playMusicBtn);
+        musicPlayBtn.setOnClickListener(this);
 
         tv=(TextView) rootView.findViewById(R.id.tvId);
         Spinner spn=(Spinner) rootView.findViewById(R.id.spn);
@@ -119,6 +127,14 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
 
         if(view.getId() == R.id.cerrarSesion){
             cerrarSesion(view);
+        }
+        if(view.getId()==R.id.musicStopBtn){
+            Intent intent = new Intent(getActivity(), ElServicio.class);
+            getActivity().stopService(intent);
+        }
+        if(view.getId()==R.id.playMusicBtn){
+            Intent intent = new Intent(getActivity(), ElServicio.class);
+            getActivity().startService(intent);
         }
     }
 }

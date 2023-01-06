@@ -39,4 +39,6 @@
     <string name="Friends">Amigos</string>
     <string name="Profile">Perfil</string>
     <string name="Apply_Changes">Aplicar mudanças</string>
+    <string name="Stop_music">" Pare a musica"</string>
+    <string name="Play_music">Liga a música</string>
 </resources>
