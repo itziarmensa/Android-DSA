@@ -48,4 +48,5 @@
     <string name="Repeat_Password">Repeat Password</string>
     <string name="Stop_music">Stop the music</string>
     <string name="Play_music">Play the music</string>
+    <string name="title_user">Title User</string>
 </resources>

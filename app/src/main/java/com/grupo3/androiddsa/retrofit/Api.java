@@ -31,6 +31,9 @@ public interface Api {
     @GET("gameManager/characters")
     Call<List<Characters>> getListCharacters();
 
+    @GET("gameManager/users")
+            Call<List<User>> getListUsers();
+
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL)
             .addConverterFactory(GsonConverterFactory.create())
