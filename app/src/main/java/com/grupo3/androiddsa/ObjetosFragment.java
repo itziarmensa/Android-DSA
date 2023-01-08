@@ -1,6 +1,8 @@
 package com.grupo3.androiddsa;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -36,7 +38,7 @@ public class ObjetosFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_objetos, container, false);
 
-        recycler = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        recycler = (RecyclerView) rootView.findViewById(R.id.RecyclerView);
         recycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
 
         progressBarStore = rootView.findViewById(R.id.progressBarStore);
@@ -59,7 +61,27 @@ public class ObjetosFragment extends Fragment {
                 adapterDatos = new AdapterDatos(listObjects, new AdapterDatos.OnItemClickListener() {
                     @Override
                     public void onItemClick(MyObjects object) {
-                        moveToDescription(object);
+                        Api api = Api.retrofit.create(Api.class);
+                        SharedPreferences preferencias=getContext().getSharedPreferences("datos", Context.MODE_PRIVATE);
+                        String email = preferencias.getString("mail","");
+                        Call<Void> call = api.buyObject(email, object.getObjectId());
+                        call.enqueue(new Callback<Void>() {
+                            @Override
+                            public void onResponse(Call<Void> call, Response<Void> response) {
+                                switch (response.code()) {
+                                    case 200:
+                                        Toast.makeText(getContext(),"Felicidades has comprado: " + object.getObjectName(), Toast.LENGTH_LONG).show();
+                                        break;
+                                    case 500:
+                                        Toast.makeText(getContext(), "No tienes suficientes monedas", Toast.LENGTH_LONG).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Void> call, Throwable t) {
+                                Toast.makeText(getContext(), response.message(),Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
                 });
                 recycler.setAdapter(adapterDatos);
@@ -73,7 +95,7 @@ public class ObjetosFragment extends Fragment {
         });
     }
 
-    private void moveToDescription(MyObjects object) {
+    private void MoveToDescription(MyObjects object) {
         Intent i = new Intent(getActivity(), MainObjectDetails.class);
         i.putExtra("Details",object);
         startActivity(i);

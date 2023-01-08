@@ -27,10 +27,9 @@ public class MainCharactersDetails extends AppCompatActivity {
 
         Characters character = (Characters) getIntent().getSerializableExtra("Details Characters");
 
-        nameCharacter.setText(character.getNameCharacter());
-        detalisCharacter.setText("Descripción: "+character.getDescriptionCharacter()+"\n"+
-                "Monedas: "+character.getCoinsCharacter()+"\n"+
-                "Dado: "+character.getIdDice()+"\n");
+        nameCharacter.setText(character.getCharacterName());
+        detalisCharacter.setText("Descripción: "+character.getCharacterDescription()+"\n"+
+                "Monedas: "+character.getCharacterCoins()+"\n");
 
     }
 }

@@ -15,6 +15,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface Api {
     String URL = "http://147.83.7.205:80/dsaApp/";
@@ -33,6 +35,15 @@ public interface Api {
 
     @GET("gameManager/users")
             Call<List<User>> getListUsers();
+
+    @PUT("gameManager/user/buyObject/{email}/{objectId}")
+    Call<Void> buyObject(@Path("email") String email, @Path("objectId") String objectId);
+
+    @GET("gameManager/user/{email}/myObjects")
+    Call<List<MyObjects>> getMyObjects(@Path("email") String email);
+
+    @GET("gameManager/user/{email}/characters")
+    Call<List<Characters>> getMyCharacters(@Path("email") String email);
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL)

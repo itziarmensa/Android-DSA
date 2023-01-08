@@ -3,9 +3,7 @@ package com.grupo3.androiddsa.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,11 +13,11 @@ import com.grupo3.androiddsa.domain.MyObjects;
 
 import java.util.List;
 
-public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> {
+public class AdapterEscogerObjeto extends RecyclerView.Adapter<AdapterEscogerObjeto.ViewHolder>{
 
     private List<MyObjects> listObjects;
 
-    final AdapterDatos.OnItemClickListener listener;
+    final AdapterEscogerObjeto.OnItemClickListener listener;
 
 
 
@@ -28,7 +26,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
     }
 
 
-    public AdapterDatos(List<MyObjects> listObjects, AdapterDatos.OnItemClickListener listener) {
+    public AdapterEscogerObjeto(List<MyObjects> listObjects, AdapterEscogerObjeto.OnItemClickListener listener) {
         this.listObjects = listObjects;
         this.listener = listener;
     }
@@ -64,7 +62,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
             description.setText(object.getObjectDescription());
             coins.setText("Coins: "+object.getObjectCoins());
             type.setText("Object type: "+object.getObjectTypeId());
-            clica.setText("Clica para comprar");
+            clica.setText("Clica para escoger");
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -77,15 +75,15 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
 
     @NonNull
     @Override //Enlaza el adaptador con la actividad item_list
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterEscogerObjeto.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_list,null,false);
 
-        return new ViewHolder(view);
+        return new AdapterEscogerObjeto.ViewHolder(view);
     }
 
     @Override //Hace la comunicación entre el adaptador y la clase ViewHolder
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterEscogerObjeto.ViewHolder holder, int position) {
         holder.bindData(listObjects.get(position));
     }
 
@@ -93,6 +91,4 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolder> 
     public int getItemCount() {
         return listObjects.size();
     }
-
-
 }
