@@ -39,6 +39,12 @@ public interface Api {
     @PUT("gameManager/user/buyObject/{email}/{objectId}")
     Call<Void> buyObject(@Path("email") String email, @Path("objectId") String objectId);
 
+    ///gameManager/user/buyCharacter/{email}/{characterId}
+    //buy a Character
+
+    @PUT("gameManager/user/buyCharacter/{email}/{characterId}")
+    Call<Void> buyCharacter(@Path("email") String email, @Path("characterId") String objectId);
+
     @GET("gameManager/user/{email}/myObjects")
     Call<List<MyObjects>> getMyObjects(@Path("email") String email);
 
