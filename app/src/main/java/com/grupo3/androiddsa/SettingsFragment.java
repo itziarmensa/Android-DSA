@@ -49,11 +49,8 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         musicPlayBtn=(Button) rootView.findViewById(R.id.playMusicBtn);
         musicPlayBtn.setOnClickListener(this);
 
-        tv=(TextView) rootView.findViewById(R.id.tvId);
         Spinner spn=(Spinner) rootView.findViewById(R.id.spn);
         spn.setOnItemSelectedListener(this);
-        SharedPreferences preferences = getActivity().getSharedPreferences("mi_archivo_preferencias", MODE_PRIVATE);
-        tv.setText(preferences.getString("idioma",""));
 
         return rootView;
     }

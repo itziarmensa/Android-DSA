@@ -35,6 +35,9 @@ public class EscogerObjetoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escoger_objeto);
 
+        View container = findViewById(R.id.fondo);
+        container.getBackground().setAlpha(50);
+
         recycler = (RecyclerView) findViewById(R.id.RecyclerView);
         recycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
 
@@ -72,5 +75,10 @@ public class EscogerObjetoActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void volver(View view) {
+        Intent i = new Intent(getApplicationContext(), MainPrincipal.class);
+        startActivity(i);
     }
 }

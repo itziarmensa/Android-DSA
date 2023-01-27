@@ -39,7 +39,7 @@ public class MainRegister extends AppCompatActivity {
         setContentView(R.layout.register_main);
 
         View container = findViewById(R.id.fondo);
-        container.getBackground().setAlpha(100);
+        container.getBackground().setAlpha(50);
 
         btnOK = findViewById(R.id.btnOk);
         btnCancel = findViewById(R.id.btnCancel);

@@ -1,69 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <Spinner
         android:id="@+id/spn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="102dp"
         android:entries="@array/dlangs"
         android:minHeight="48dp"
         android:prompt="@string/spn_title"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:id="@+id/tvId"
-        android:layout_width="389dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="300dp"
-        android:layout_gravity="center" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/musicStopBtn"
+        android:textColor="#4A148C"/>
 
     <Button
         android:id="@+id/btnConfChanges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-200dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="100dp"
         android:text="@string/Apply_Changes"
-        android:layout_gravity="center" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spn"
+        android:background="#8AAA8C"
+        android:textColor="#4A148C"/>
 
     <Button
         android:id="@+id/cerrarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:text="@string/cerrar_sesi_ngggg"
-        android:layout_gravity="bottom"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#8AAA8C"
+        android:textColor="#4A148C"/>
 
     <Button
         android:id="@+id/musicStopBtn"
         android:layout_width="200dp"
         android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="100dp"
-        android:text="@string/Stop_music" />
+        android:layout_marginBottom="340dp"
+        android:text="@string/Stop_music"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#8AAA8C"
+        android:textColor="#4A148C"/>
 
     <Button
         android:id="@+id/playMusicBtn"
         android:layout_width="200dp"
         android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
-        android:text="@string/Play_music" />
+        android:text="@string/Play_music"
+        app:layout_constraintBottom_toTopOf="@+id/musicStopBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.809"
+        android:background="#8AAA8C"
+        android:textColor="#4A148C"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textyeue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/elige_el_idioma"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/spn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/musicStopBtn"
+        app:layout_constraintVertical_bias="0.915" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

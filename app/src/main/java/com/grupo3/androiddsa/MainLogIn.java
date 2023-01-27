@@ -33,7 +33,7 @@ public class MainLogIn extends AppCompatActivity {
         setContentView(R.layout.login_main);
 
         View container = findViewById(R.id.fondo);
-        container.getBackground().setAlpha(100);
+        container.getBackground().setAlpha(50);
 
         btnLogIn = findViewById(R.id.btnLogIn);
         btnRegister = findViewById(R.id.btnRegister);

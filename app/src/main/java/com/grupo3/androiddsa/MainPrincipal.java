@@ -26,7 +26,7 @@ public class MainPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_main_principal);
 
         View container = findViewById(R.id.fondo);
-        container.getBackground().setAlpha(100);
+        container.getBackground().setAlpha(50);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 

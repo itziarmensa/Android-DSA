@@ -50,4 +50,5 @@
     <string name="Play_music">Play the music</string>
     <string name="title_user">Title User</string>
     <string name="empezarJuego">Jugar</string>
+    <string name="elige_el_idioma">Elige el idioma:</string>
 </resources>
