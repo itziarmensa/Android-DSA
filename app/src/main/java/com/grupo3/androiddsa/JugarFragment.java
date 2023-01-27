@@ -3,11 +3,14 @@ package com.grupo3.androiddsa;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 
 public class JugarFragment extends Fragment {
@@ -21,6 +24,12 @@ public class JugarFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_jugar, container, false);
 
         btnJugar = rootView.findViewById(R.id.btnJugar);
+
+        ScaleAnimation animation = new ScaleAnimation(1, 1.2f, 1, 1.2f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        animation.setDuration(1000);
+        animation.setRepeatCount(Animation.INFINITE);
+        animation.setRepeatMode(Animation.REVERSE);
+        btnJugar.startAnimation(animation);
 
         btnJugar.setOnClickListener(new View.OnClickListener() {
             @Override

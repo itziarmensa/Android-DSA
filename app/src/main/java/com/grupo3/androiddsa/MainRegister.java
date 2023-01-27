@@ -38,6 +38,9 @@ public class MainRegister extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_main);
 
+        View container = findViewById(R.id.fondo);
+        container.getBackground().setAlpha(100);
+
         btnOK = findViewById(R.id.btnOk);
         btnCancel = findViewById(R.id.btnCancel);
 

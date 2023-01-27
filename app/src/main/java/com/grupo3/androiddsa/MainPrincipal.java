@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.grupo3.androiddsa.AmigosFragment;
@@ -23,6 +24,9 @@ public class MainPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_principal);
+
+        View container = findViewById(R.id.fondo);
+        container.getBackground().setAlpha(100);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 

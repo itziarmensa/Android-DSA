@@ -32,6 +32,9 @@ public class MainLogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
 
+        View container = findViewById(R.id.fondo);
+        container.getBackground().setAlpha(100);
+
         btnLogIn = findViewById(R.id.btnLogIn);
         btnRegister = findViewById(R.id.btnRegister);
 

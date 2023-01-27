@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,7 +40,7 @@ public class ObjetosFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_objetos, container, false);
 
         recycler = (RecyclerView) rootView.findViewById(R.id.RecyclerView);
-        recycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        recycler.setLayoutManager(new GridLayoutManager(this.getActivity(),2));
 
         progressBarStore = rootView.findViewById(R.id.progressBarStore);
 
