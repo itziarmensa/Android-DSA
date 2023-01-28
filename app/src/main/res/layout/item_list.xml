@@ -43,10 +43,22 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/clica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:id="@+id/clica"/>
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/points"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/finished"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
 
         </LinearLayout>
     </RelativeLayout>

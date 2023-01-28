@@ -2,8 +2,10 @@ package com.grupo3.androiddsa.retrofit;
 
 import com.grupo3.androiddsa.domain.Characters;
 import com.grupo3.androiddsa.domain.MyObjects;
+import com.grupo3.androiddsa.domain.Partida;
 import com.grupo3.androiddsa.domain.User;
 import com.grupo3.androiddsa.domain.to.ObjectRecycler;
+import com.grupo3.androiddsa.domain.to.PartidaCreate;
 import com.grupo3.androiddsa.domain.to.UserRegister;
 import com.grupo3.androiddsa.domain.vo.Credentials;
 
@@ -39,9 +41,6 @@ public interface Api {
     @PUT("gameManager/user/buyObject/{email}/{objectId}")
     Call<Void> buyObject(@Path("email") String email, @Path("objectId") String objectId);
 
-    ///gameManager/user/buyCharacter/{email}/{characterId}
-    //buy a Character
-
     @PUT("gameManager/user/buyCharacter/{email}/{characterId}")
     Call<Void> buyCharacter(@Path("email") String email, @Path("characterId") String objectId);
 
@@ -50,6 +49,15 @@ public interface Api {
 
     @GET("gameManager/user/{email}/characters")
     Call<List<Characters>> getMyCharacters(@Path("email") String email);
+
+    @POST("gameManager/partida")
+    Call<Partida> createPartida(@Body PartidaCreate partidaCreate);
+
+    @GET("gameManager/user/{email}/partidas")
+    Call<List<Partida>> getPartidas(@Path("email") String email);
+
+    @PUT("gameManager/partida")
+    Call<Void> updatePartida(@Body Partida partida);
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL)

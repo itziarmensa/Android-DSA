@@ -76,6 +76,9 @@
         <activity
             android:name=".MainLogIn"
             android:exported="false" />
+        <activity
+            android:name=".PartidaActivity"
+            android:exported="false" />
 
         <service android:name=".ElServicio" />
         <meta-data

@@ -16,6 +16,9 @@ import com.grupo3.androiddsa.adapters.AdapterEscogerObjeto;
 import com.grupo3.androiddsa.adapters.AdapterEscogerPersonaje;
 import com.grupo3.androiddsa.domain.Characters;
 import com.grupo3.androiddsa.domain.MyObjects;
+import com.grupo3.androiddsa.domain.Partida;
+import com.grupo3.androiddsa.domain.User;
+import com.grupo3.androiddsa.domain.to.PartidaCreate;
 import com.grupo3.androiddsa.retrofit.Api;
 
 import java.util.List;
@@ -30,6 +33,7 @@ public class EscogerPersonajeActivity extends AppCompatActivity {
     private RecyclerView recycler;
     private AdapterEscogerPersonaje adapterDatos;
     private ProgressBar progressBarStore;
+    private String objectId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +48,12 @@ public class EscogerPersonajeActivity extends AppCompatActivity {
 
         progressBarStore = findViewById(R.id.progressBarStore);
 
-        getListObjects();
+        objectId =(String) getIntent().getSerializableExtra("objectId");
+
+        getListCharacters();
     }
 
-    private void getListObjects(){
+    private void getListCharacters(){
         progressBarStore.setVisibility(View.VISIBLE);
         Api service = Api.retrofit.create(Api.class);
         SharedPreferences preferencias=getSharedPreferences("datos", Context.MODE_PRIVATE);
@@ -63,8 +69,26 @@ public class EscogerPersonajeActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(Characters character) {
                         Toast.makeText(getApplicationContext(),"Has escogido "+ character.getCharacterName(),Toast.LENGTH_LONG).show();
-                        //Intent i = new Intent(EscogerPersonajeActivity.this,Unity.class);
-                        //startActivity(i);
+                        PartidaCreate partidaCreate = new PartidaCreate(email, objectId, character.getCharacterId());
+                        Call<Partida> call = service.createPartida(partidaCreate);
+                        call.enqueue(new Callback<Partida>() {
+                            @Override
+                            public void onResponse(Call<Partida> call, Response<Partida> response) {
+                                switch (response.code()) {
+                                    case 200:
+                                        //Intent i = new Intent(EscogerPersonajeActivity.this, Unity.class);
+                                        //startActivity(i);
+                                        break;
+                                    case 500:
+                                        Toast.makeText(getApplicationContext(), "Partida no creada", Toast.LENGTH_LONG).show();
+                                        break;
+                                }
+                            }
+                            @Override
+                            public void onFailure(Call<Partida> call, Throwable t) {
+                                Toast.makeText(getApplicationContext(),"Fail",Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
                 });
                 recycler.setAdapter(adapterDatos);

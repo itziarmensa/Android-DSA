@@ -3,7 +3,6 @@ package com.grupo3.androiddsa;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,7 +14,7 @@ import android.widget.Button;
 
 public class JugarFragment extends Fragment {
 
-    Button btnJugar;
+    Button btnCreatePartida, btnPreviousPartida;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,18 +22,28 @@ public class JugarFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_jugar, container, false);
 
-        btnJugar = rootView.findViewById(R.id.btnJugar);
+        btnCreatePartida = rootView.findViewById(R.id.btnCreatePartida);
+        btnPreviousPartida = rootView.findViewById(R.id.btnPreviousPartida);
 
         ScaleAnimation animation = new ScaleAnimation(1, 1.2f, 1, 1.2f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setDuration(1000);
         animation.setRepeatCount(Animation.INFINITE);
         animation.setRepeatMode(Animation.REVERSE);
-        btnJugar.startAnimation(animation);
+        btnCreatePartida.startAnimation(animation);
+        btnPreviousPartida.startAnimation(animation);
 
-        btnJugar.setOnClickListener(new View.OnClickListener() {
+        btnCreatePartida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),EscogerObjetoActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnPreviousPartida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),PartidaActivity.class);
                 startActivity(i);
             }
         });
