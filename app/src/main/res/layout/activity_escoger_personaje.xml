@@ -27,12 +27,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/volver"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EscogerObjeto"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/EscogerObjeto" />
 
     <ProgressBar
         android:id="@+id/progressBarStore"
@@ -58,6 +60,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="10dp"
         android:textColor="#4A148C"
         android:background="#8AAA8C"
         android:onClick="volver"/>

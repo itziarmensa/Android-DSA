@@ -92,7 +92,7 @@
         android:layout_marginTop="16dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:textColorHint="#757575"

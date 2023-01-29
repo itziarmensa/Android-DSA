@@ -1,7 +1,9 @@
 package com.grupo3.androiddsa.retrofit;
 
 import com.grupo3.androiddsa.domain.Characters;
+import com.grupo3.androiddsa.domain.Faqs;
 import com.grupo3.androiddsa.domain.Information;
+import com.grupo3.androiddsa.domain.Issue;
 import com.grupo3.androiddsa.domain.MyObjects;
 import com.grupo3.androiddsa.domain.Partida;
 import com.grupo3.androiddsa.domain.User;
@@ -74,6 +76,12 @@ public interface Api {
 
     @GET("gameManager/information")
     Call<List<Information>> getInformation();
+
+    @GET("gameManager/FAQs")
+    Call<List<Faqs>> getFaqs();
+
+    @POST("gameManager/issue")
+    Call<Issue> addIssue(@Body Issue issue);
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL)

@@ -88,6 +88,14 @@
             android:name=".InformationActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".FaqsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".IssueActivity"
+            android:exported="false" />
+
         <service android:name=".ElServicio" />
         <meta-data
             android:name="preloaded_fonts"

@@ -20,12 +20,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.grupo3.androiddsa.adapters.AdapterEscogerObjeto;
-import com.grupo3.androiddsa.domain.MyObjects;
 import com.grupo3.androiddsa.domain.User;
 import com.grupo3.androiddsa.retrofit.Api;
 
-import java.util.List;
 import java.util.Locale;
 
 import retrofit2.Call;
@@ -39,6 +36,8 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     Button cerrarSesion;
     Button musicStopBtn;
     Button musicPlayBtn;
+    Button faqsBtn;
+    Button issueBtn;
     String idioma;
     User user;
 
@@ -61,8 +60,30 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         musicPlayBtn=(Button) rootView.findViewById(R.id.playMusicBtn);
         musicPlayBtn.setOnClickListener(this);
 
+        faqsBtn = (Button) rootView.findViewById(R.id.faqsBtn);
+        faqsBtn.setOnClickListener(this);
+
+        issueBtn = (Button) rootView.findViewById(R.id.issueBtn);
+        issueBtn.setOnClickListener(this);
+
         Spinner spn=(Spinner) rootView.findViewById(R.id.spn);
         spn.setOnItemSelectedListener(this);
+
+        Api service = Api.retrofit.create(Api.class);
+        SharedPreferences preferencias=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
+        String email = preferencias.getString("mail","");
+        Call<User> call = service.getUserByEmail(email);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                user = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(getContext(), t.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
 
         return rootView;
     }
@@ -92,27 +113,9 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         cambiarIdiomaBBDD();
         Intent intent = new Intent(getActivity(), MainSplashScreen.class);
         getActivity().startActivity(intent);
-
-
     }
 
     public void cambiarIdioma() {
-        Api service = Api.retrofit.create(Api.class);
-        SharedPreferences preferencias=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
-        String email = preferencias.getString("mail","");
-        Call<User> call = service.getUserByEmail(email);
-        call.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                user = response.body();
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(getContext(), t.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-
         Resources res = getResources(); // obtenemos una instancia de Resources
         Configuration config = new Configuration(res.getConfiguration()); // obtenemos la configuración actual
         switch (idioma){
@@ -149,14 +152,14 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
             public void onResponse(Call<Void> call, Response<Void> response) {
                 switch (response.code()) {
                     case 200:
-                        Toast.makeText(getContext(),"Idioma cambiado correctamente", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "Language updated correctly", Toast.LENGTH_LONG).show();
                         break;
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(getContext(), t.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Fail", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -186,6 +189,14 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         if(view.getId()==R.id.playMusicBtn){
             Intent intent = new Intent(getActivity(), ElServicio.class);
             getActivity().startService(intent);
+        }
+        if(view.getId()==R.id.faqsBtn){
+            Intent intent = new Intent(getActivity(), FaqsActivity.class);
+            startActivity(intent);
+        }
+        if(view.getId()==R.id.issueBtn){
+            Intent intent = new Intent(getActivity(), IssueActivity.class);
+            startActivity(intent);
         }
     }
 }

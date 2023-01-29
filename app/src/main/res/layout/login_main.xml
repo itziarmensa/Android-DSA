@@ -94,7 +94,7 @@
         android:layout_marginTop="68dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/gmail_log"
+        android:hint="@string/email_log"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:textColorHint="#546E7A"
