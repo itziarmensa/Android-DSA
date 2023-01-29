@@ -44,7 +44,7 @@ public class EscogerObjetoActivity extends AppCompatActivity {
 
         progressBarStore = findViewById(R.id.progressBarStore);
 
-        //getListObjects();
+        getListObjects();
     }
 
     private void getListObjects(){

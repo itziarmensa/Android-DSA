@@ -80,6 +80,14 @@
             android:name=".PartidaActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".RankingActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".InformationActivity"
+            android:exported="false" />
+
         <service android:name=".ElServicio" />
         <meta-data
             android:name="preloaded_fonts"

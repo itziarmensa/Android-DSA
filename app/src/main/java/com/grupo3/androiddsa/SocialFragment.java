@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.grupo3.androiddsa.adapters.AdapterInformation;
 import com.grupo3.androiddsa.adapters.AdapterRanking;
 import com.grupo3.androiddsa.adapters.AdapterUser;
+import com.grupo3.androiddsa.domain.Information;
 import com.grupo3.androiddsa.domain.User;
 import com.grupo3.androiddsa.retrofit.Api;
 
@@ -24,52 +27,52 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProfileFragment extends Fragment {
-    public List<User> listUsers;
+public class SocialFragment extends Fragment {
+    public List<Information> listInformation;
     private RecyclerView recycler;
-    private AdapterUser adapterUser;
+    private AdapterInformation adapterInformation;
     private ProgressBar progressBarStore;
+    private Button btnAddInformation;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView=inflater.inflate(R.layout.fragment_profile,container,false);
+        View rootView=inflater.inflate(R.layout.fragment_social,container,false);
         recycler=(RecyclerView) rootView.findViewById(R.id.recyclerView);
         recycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         progressBarStore = rootView.findViewById(R.id.progressBarStore);
-        getListUsers();
+        btnAddInformation = rootView.findViewById(R.id.btnAddInformation);
+
+        btnAddInformation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), InformationActivity.class);
+                startActivity(i);
+            }
+        });
+
+        getInformation();
         return rootView;
     }
-    private void getListUsers(){
+    private void getInformation(){
         progressBarStore.setVisibility(View.VISIBLE);
         Api service = Api.retrofit.create(Api.class);
-        Call<List<User>> call=service.getListUsers();
-        call.enqueue(new Callback<List<User>>() {
+        Call<List<Information>> call=service.getInformation();
+        call.enqueue(new Callback<List<Information>>() {
             @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+            public void onResponse(Call<List<Information>> call, Response<List<Information>> response) {
                 progressBarStore.setVisibility(View.GONE);
-                listUsers=response.body();
-                adapterUser=new AdapterUser(listUsers, new AdapterUser.OnItemClickListener() {
-                @Override
-                public void onItemClick(User user) {
-                moveToDescription(user);
-                }
-                });
-                recycler.setAdapter(adapterUser);
+                listInformation=response.body();
+                adapterInformation=new AdapterInformation(listInformation);
+                recycler.setAdapter(adapterInformation);
             }
 
             @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
+            public void onFailure(Call<List<Information>> call, Throwable t) {
                 Toast.makeText(getContext(),t.getMessage(), Toast.LENGTH_LONG).show();
                 progressBarStore.setVisibility(View.GONE);
             }
         });
-    }
-
-    private void moveToDescription(User user){
-        Intent i=new Intent(getActivity(),MainUsersDetails.class);
-        i.putExtra("Details",user);
-        startActivity(i);
     }
 }

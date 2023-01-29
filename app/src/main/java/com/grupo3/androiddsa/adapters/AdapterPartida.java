@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.grupo3.androiddsa.R;
-import com.grupo3.androiddsa.domain.MyObjects;
 import com.grupo3.androiddsa.domain.Partida;
 
 import java.util.List;

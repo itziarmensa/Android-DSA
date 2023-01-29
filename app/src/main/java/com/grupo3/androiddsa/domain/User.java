@@ -10,20 +10,26 @@ public class User implements Serializable{
     String userName;
     String userSurname;
     String userBirth;
+    double coins;
+    int points;
     String email;
     String password;
+    String language;
     public User()
     {
 
     }
 
-    public User(String userName, String userSurname, String userBirth, String email, String password) {
+    public User(String userName, String userSurname, String userBirth, double coins, int points, String email, String password, String language) {
         this.userId= RandomId.getId();
         this.userName = userName;
         this.userSurname = userSurname;
         this.userBirth = userBirth;
+        this.coins = coins;
+        this.points = points;
         this.email = email;
         this.password = password;
+        this.language = language;
     }
 
     public String getUserId() {
@@ -58,6 +64,22 @@ public class User implements Serializable{
         this.userBirth = userBirth;
     }
 
+    public double getCoins() {
+        return this.coins;
+    }
+
+    public void setCoins(double coins) {
+        this.coins = coins;
+    }
+
+    public int getPoints() {
+        return this.points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -72,5 +94,13 @@ public class User implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }

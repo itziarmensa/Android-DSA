@@ -9,12 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.grupo3.androiddsa.AmigosFragment;
-import com.grupo3.androiddsa.JugarFragment;
-import com.grupo3.androiddsa.ProfileFragment;
-import com.grupo3.androiddsa.R;
-import com.grupo3.androiddsa.SettingsFragment;
-import com.grupo3.androiddsa.TiendaFragment;
 
 public class MainPrincipal extends AppCompatActivity {
 
@@ -40,7 +34,7 @@ public class MainPrincipal extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.lista:
-                        mCurrentFragment = new AmigosFragment();
+                        mCurrentFragment = new SocialFragment();
                         break;
                     case R.id.tienda:
                         mCurrentFragment = new TiendaFragment();

@@ -14,7 +14,7 @@ import android.widget.Button;
 
 public class JugarFragment extends Fragment {
 
-    Button btnCreatePartida, btnPreviousPartida;
+    Button btnCreatePartida, btnPreviousPartida, btnRanking;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -24,6 +24,7 @@ public class JugarFragment extends Fragment {
 
         btnCreatePartida = rootView.findViewById(R.id.btnCreatePartida);
         btnPreviousPartida = rootView.findViewById(R.id.btnPreviousPartida);
+        btnRanking = rootView.findViewById(R.id.btnRanking);
 
         ScaleAnimation animation = new ScaleAnimation(1, 1.2f, 1, 1.2f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setDuration(1000);
@@ -31,6 +32,7 @@ public class JugarFragment extends Fragment {
         animation.setRepeatMode(Animation.REVERSE);
         btnCreatePartida.startAnimation(animation);
         btnPreviousPartida.startAnimation(animation);
+        btnRanking.startAnimation(animation);
 
         btnCreatePartida.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +46,14 @@ public class JugarFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),PartidaActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),RankingActivity.class);
                 startActivity(i);
             }
         });

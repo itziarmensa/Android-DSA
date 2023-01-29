@@ -51,5 +51,13 @@
     <string name="title_user">Title User</string>
     <string name="empezarJuego">Create New Game</string>
     <string name="previousGames">Previous Games</string>
+    <string name="ranking">Ranking</string>
     <string name="elige_el_idioma">Elige el idioma:</string>
+    <string name="send">Send</string>
+    <string name="addInformation">Add Information</string>
+    <string name="newInformation">New Information</string>
+    <string name="title">Title</string>
+    <string name="message">Message</string>
+    <string name="volver">Volver</string>
+    <string name="add">Añadir</string>
 </resources>

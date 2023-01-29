@@ -12,14 +12,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.grupo3.androiddsa.adapters.AdapterEscogerObjeto;
 import com.grupo3.androiddsa.adapters.AdapterPartida;
-import com.grupo3.androiddsa.domain.MyObjects;
 import com.grupo3.androiddsa.domain.Partida;
 import com.grupo3.androiddsa.retrofit.Api;
 
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,7 +25,7 @@ import retrofit2.Response;
 public class PartidaActivity extends AppCompatActivity {
     private List<Partida> listPartida;
     private RecyclerView recycler;
-    private AdapterPartida adapterPartida;
+    private AdapterPartida adapterRanking;
     private ProgressBar progressBarStore;
 
     @Override
@@ -59,7 +56,7 @@ public class PartidaActivity extends AppCompatActivity {
             public void onResponse(Call<List<Partida>> call, Response<List<Partida>> response) {
                 progressBarStore.setVisibility(View.GONE);
                 listPartida = response.body();
-                adapterPartida = new AdapterPartida(listPartida, new AdapterPartida.OnItemClickListener() {
+                adapterRanking = new AdapterPartida(listPartida, new AdapterPartida.OnItemClickListener() {
                     @Override
                     public void onItemClick(Partida partida) {
                         if (!partida.getFinished()) {
@@ -70,7 +67,7 @@ public class PartidaActivity extends AppCompatActivity {
                         }
                     }
                 });
-                recycler.setAdapter(adapterPartida);
+                recycler.setAdapter(adapterRanking);
             }
 
             @Override

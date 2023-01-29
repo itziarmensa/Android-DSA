@@ -1,6 +1,7 @@
 package com.grupo3.androiddsa.retrofit;
 
 import com.grupo3.androiddsa.domain.Characters;
+import com.grupo3.androiddsa.domain.Information;
 import com.grupo3.androiddsa.domain.MyObjects;
 import com.grupo3.androiddsa.domain.Partida;
 import com.grupo3.androiddsa.domain.User;
@@ -36,7 +37,7 @@ public interface Api {
     Call<List<Characters>> getListCharacters();
 
     @GET("gameManager/users")
-            Call<List<User>> getListUsers();
+    Call<List<User>> getListUsers();
 
     @PUT("gameManager/user/buyObject/{email}/{objectId}")
     Call<Void> buyObject(@Path("email") String email, @Path("objectId") String objectId);
@@ -58,6 +59,21 @@ public interface Api {
 
     @PUT("gameManager/partida")
     Call<Void> updatePartida(@Body Partida partida);
+
+    @GET("gameManager/users/ranking")
+    Call<List<User>> getRanking();
+
+    @PUT("gameManager/user")
+    Call<Void> updateUser(@Body User user);
+
+    @GET("gameManager/user/{email}")
+    Call<User> getUserByEmail(@Path("email") String email);
+
+    @POST("gameManager/information")
+    Call<Information> addInformation(@Body Information information);
+
+    @GET("gameManager/information")
+    Call<List<Information>> getInformation();
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL)

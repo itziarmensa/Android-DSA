@@ -22,7 +22,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4" />
+            app:layout_constraintVertical_bias="0.3" />
 
         <Button
             android:id="@+id/btnPreviousPartida"
@@ -35,6 +35,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.6" />
+            app:layout_constraintVertical_bias="0.5" />
+
+        <Button
+            android:id="@+id/btnRanking"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:background="#8AAA8C"
+            android:text="@string/ranking"
+            android:textColor="#4A148C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -18,8 +18,19 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.grupo3.androiddsa.adapters.AdapterEscogerObjeto;
+import com.grupo3.androiddsa.domain.MyObjects;
+import com.grupo3.androiddsa.domain.User;
+import com.grupo3.androiddsa.retrofit.Api;
+
+import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SettingsFragment extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener{
 
@@ -29,6 +40,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     Button musicStopBtn;
     Button musicPlayBtn;
     String idioma;
+    User user;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,6 +89,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         // Aplicar los cambios
         editor.apply();
         cambiarIdioma();
+        cambiarIdiomaBBDD();
         Intent intent = new Intent(getActivity(), MainSplashScreen.class);
         getActivity().startActivity(intent);
 
@@ -84,27 +97,68 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     }
 
     public void cambiarIdioma() {
+        Api service = Api.retrofit.create(Api.class);
+        SharedPreferences preferencias=getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
+        String email = preferencias.getString("mail","");
+        Call<User> call = service.getUserByEmail(email);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                user = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(getContext(), t.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
+
         Resources res = getResources(); // obtenemos una instancia de Resources
         Configuration config = new Configuration(res.getConfiguration()); // obtenemos la configuración actual
         switch (idioma){
             case "Spanish":
+                user.setLanguage("es");
                 config.setLocale(new Locale("es")); // establecemos el idioma español
                 break;
             case "English":
+                user.setLanguage("en");
                 config.setLocale(new Locale("en")); // establecemos el idioma español
                 break;
             case "French":
+                user.setLanguage("fr");
                 config.setLocale(new Locale("fr")); // establecemos el idioma español
                 break;
             case "Italian":
+                user.setLanguage("it");
                 config.setLocale(new Locale("it")); // establecemos el idioma español
                 break;
             case "Portuguese":
+                user.setLanguage("pt");
                 config.setLocale(new Locale("pt")); // establecemos el idioma español
                 break;
 
         }
         res.updateConfiguration(config, res.getDisplayMetrics()); // aplicamos los cambios
+    }
+
+    public void cambiarIdiomaBBDD() {
+        Api service = Api.retrofit.create(Api.class);
+        Call<Void> call = service.updateUser(user);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                switch (response.code()) {
+                    case 200:
+                        Toast.makeText(getContext(),"Idioma cambiado correctamente", Toast.LENGTH_LONG).show();
+                        break;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(getContext(), t.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     public void cerrarSesion(View view) {
