@@ -27,6 +27,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import com.unity3d.player.UnityPlayer;
+import com.unity3d.player.UnityPlayerActivity;
+
+
 public class EscogerPersonajeActivity extends AppCompatActivity {
 
     private List<Characters> listCharacters;
@@ -69,6 +73,10 @@ public class EscogerPersonajeActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(Characters character) {
                         Toast.makeText(getApplicationContext(),"Has escogido "+ character.getCharacterName(),Toast.LENGTH_LONG).show();
+                        UnityPlayer.UnitySendMessage("GameManager", "receivedCharacter",character.getCharacterName());
+                        UnityPlayer.UnitySendMessage("GameManager1Lose", "receivedCharacter",character.getCharacterName());
+                        UnityPlayer.UnitySendMessage("GameManagerJuego1", "receivedCharacter",character.getCharacterName());
+                        String name = character.getCharacterName();
                         PartidaCreate partidaCreate = new PartidaCreate(email, objectId, character.getCharacterId());
                         Call<Partida> call = service.createPartida(partidaCreate);
                         call.enqueue(new Callback<Partida>() {
@@ -76,8 +84,8 @@ public class EscogerPersonajeActivity extends AppCompatActivity {
                             public void onResponse(Call<Partida> call, Response<Partida> response) {
                                 switch (response.code()) {
                                     case 200:
-                                        //Intent i = new Intent(EscogerPersonajeActivity.this, Unity.class);
-                                        //startActivity(i);
+                                        Intent i = new Intent(EscogerPersonajeActivity.this, UnityPlayerActivity.class);
+                                        startActivity(i);
                                         break;
                                     case 500:
                                         Toast.makeText(getApplicationContext(), "Partida no creada", Toast.LENGTH_LONG).show();
