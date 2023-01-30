@@ -1,8 +1,3 @@
-Versión de la primera entrega de Android completada y en funcionamiento.
+ANDROID DSA
 
-Esta versión incluye:
-	- Log in
-	- Registro
-	- Visualización de la lista de objetos
-
-Estas funciones se han realizado con la ayuda de retrofit y recyclerView.
+Esta es la versión final de la aplicación de Android del proyecto de DSA. Algunas de las funciones que se permiten en esta versión son el registro y el logueo de un usuario, la compra de objetos y personajes para poder jugar las partidas, además de la creación de partidas, un ranking de los puntos totales y un historial de las partidas que se han jugado (tanto las finalizadas como las que no se han terminado (las cuales se pueden retomar)). Esta aplicación también permite la selección del idioma por parte del usuario. Aparte, también hay algunas novedades como ver las FAQs del juego, un foro para poder comunicarse con los demás usuarios y reportar cualquier incidencia. Finalmente, en la aplicación se ejecuta el juego que se ha desarrollado en Unity para poder jugarlo con el objeto y el personaje que se ha seleccionado.
